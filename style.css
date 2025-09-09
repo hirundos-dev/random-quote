@@ -1,0 +1,24 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f0f0;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#quote {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
