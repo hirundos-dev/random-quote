@@ -1,0 +1,48 @@
+.las {
+    
+  /* Отступ для контента над фиксированным footer */
+  & main {
+    padding-bottom: 8rem;
+    padding-top: 8em;
+  }
+
+
+  & h3 {
+    font-size: 1.8em;
+    font-weight: 450;
+    line-height:  1.2;
+    margin-bottom: 0.5em;
+
+  }
+
+.container {
+  text-align: center;
+}
+
+.phrase-block {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 450;
+  cursor: pointer;
+  border-radius: 0.5em;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+}
