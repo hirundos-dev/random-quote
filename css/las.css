@@ -11,38 +11,43 @@
     font-size: 1.8em;
     font-weight: 450;
     line-height:  1.2;
-    margin-bottom: 0.5em;
-
   }
 
-.container {
-  text-align: center;
-}
-
-.phrase-block {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-}
 
 
 button {
-  padding: 0.5em 1em;
+  padding: 0.8em 1.6em;
   font-size: 1em;
   font-weight: 450;
   cursor: pointer;
-  border-radius: 0.5em;
+  border-radius: 2em;
   border: none;
-  background-color: #007bff;
-  color: white;
-  transition: background-color 0.2s ease;
+  background-color: rgba(var(--las__accent-RGB), 0.8);
+  color: rgba(var(--las__white-RGB), 1);
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+  z-index: 1;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: rgba(var(--las__accent-RGB), 1);
+  transform: scale(1.05);
 }
 
+button:active {
+  transform: scale(1); /* Увеличение при клике */
+}
+
+}
+
+.quote-container {
+  background-color: rgba(var(--las__surface-RGB), 1);;
+  border-radius: 2em;
+  padding: 1em 3em;
+  min-height: 6em;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+  box-sizing: border-box;
 }
