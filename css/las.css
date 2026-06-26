@@ -3,7 +3,7 @@
   /* Отступ для контента над фиксированным footer */
   & main {
     padding-bottom: 8rem;
-    padding-top: 8em;
+    padding-top: 4em;
   }
 
 
@@ -20,7 +20,7 @@ button {
   font-size: 1em;
   font-weight: 450;
   cursor: pointer;
-  border-radius: 2em;
+  border-radius: 1em;
   border: none;
   background-color: rgba(var(--las__accent-RGB), 0.8);
   color: rgba(var(--las__white-RGB), 1);
