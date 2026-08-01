@@ -1,0 +1,54 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "instructions": [
+    "AGENTS.md",
+    "docs/safe-fix.md"
+  ],
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
+  "skills": {
+    "paths": [".opencode/skills"]
+  },
+
+  "permission": {
+    "mcp_*": "ask"
+  },
+
+  "agent": {
+    "planner": {
+      "description": "Expert planning specialist for complex features and refactoring.",
+      "mode": "subagent",
+      "model": "opencode/big-pickle",
+      "prompt": "{file:.opencode/prompts/agents/planner.txt}",
+      "permission": { "read": "allow", "bash": "allow", "edit": "deny", "write": "deny" }
+    },
+    "architect": {
+      "description": "Software architecture specialist for system design and technical decisions.",
+      "mode": "subagent",
+      "model": "opencode/big-pickle",
+      "prompt": "{file:.opencode/prompts/agents/architect.txt}",
+      "permission": { "read": "allow", "bash": "allow", "edit": "deny", "write": "deny" }
+    },
+    "code-reviewer": {
+      "description": "Code review specialist. Reviews code for quality, security, and maintainability.",
+      "mode": "subagent",
+      "model": "opencode/big-pickle",
+      "prompt": "{file:.opencode/prompts/agents/code-reviewer.txt}",
+      "permission": { "read": "allow", "bash": "allow", "edit": "deny", "write": "deny" }
+    },
+    "refactor-cleaner": {
+      "description": "Dead code cleanup and consolidation specialist.",
+      "mode": "subagent",
+      "model": "opencode/big-pickle",
+      "prompt": "{file:.opencode/prompts/agents/refactor-cleaner.txt}",
+      "permission": { "read": "allow", "bash": "allow", "edit": "allow", "write": "allow" }
+    },
+    "doc-updater": {
+      "description": "Documentation update specialist.",
+      "mode": "subagent",
+      "model": "opencode/big-pickle",
+      "prompt": "{file:.opencode/prompts/agents/doc-updater.txt}",
+      "permission": { "read": "allow", "bash": "allow", "edit": "allow", "write": "allow" }
+    }
+  }
+}
