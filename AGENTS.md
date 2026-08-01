@@ -37,15 +37,18 @@ Every code change must follow `docs/safe-fix.md` — root cause analysis, minima
 ```
 random-quote/
 ├── index.html              # Single page: quote heading + "Показать фразу" button
-├── script.js               # Fetch phrases.md, random phrase on click
+├── script.js               # ES module: fetch phrases.md, animate phrase on click
 ├── style.css               # Legacy stylesheet (not linked from index.html)
 ├── phrases.md              # Phrase list, one `- ` per line (source of data)
+├── js/                     # Scripts
+│   └── serega-gentle.js    # Vendored animation module (serega-gentle skill asset)
 ├── css/                    # Stylesheets
 │   ├── normalize.css       # Reset (v8.0.1)
 │   ├── colors.css          # Color tokens (CSS custom properties, --las__*)
 │   ├── settings.css        # @font-face, fluid typography, density
 │   ├── layout.css          # Wrapper, spacing, responsive layout
-│   └── las.css             # Component styles (button, quote display)
+│   ├── las.css             # Component styles (button, quote display)
+│   └── serega-gentle.css   # Animation styles (serega-gentle skill asset)
 ├── fonts/                  # Root UI (active), Onest (available)
 ├── docs/                   # Documentation
 │   ├── safe-fix.md         # Mandatory fix protocol
@@ -58,12 +61,12 @@ random-quote/
 ### Static Site — No Build System
 - Raw HTML5, CSS3, and vanilla JS served as-is.
 - No package.json, no bundler, no transpiler, no minification pipeline.
-- All CSS and JS are hand-written source files.
+- All CSS and JS are hand-written source files, except vendored skill assets (js/serega-gentle.js, css/serega-gentle.css) copied verbatim from the serega-gentle skill.
 - Deployed via GitHub Pages from `main` branch.
 
 ### Data Flow
 - `script.js` fetches `phrases.md` on load and parses lines starting with `- `.
-- Clicking the button hides it, picks a random phrase, shows it for ~1.5s, then restores the button.
+- Clicking the button hides it, picks a random phrase, reveals it with the serega-gentle per-character animation, shows it for ~1.5s, then restores the button.
 - The site works without JS: heading renders, button requires JS.
 
 ### CSS Architecture
@@ -98,7 +101,7 @@ random-quote/
 - Vanilla ES6+ only — no frameworks, no jQuery, no build step.
 - No `console.log` in production code.
 - Progressive enhancement — site must work without JS.
-- `script.js` is the only JS file; keep it small and dependency-free.
+- `script.js` is the only hand-written JS file; keep it small and dependency-free. Vendored skill assets (js/serega-gentle.js) are not edited.
 
 ### Content
 - Phrases live in `phrases.md`, one per line starting with `- `.
