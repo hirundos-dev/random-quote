@@ -40,6 +40,51 @@ button:active {
 
 }
 
+.las__shine {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(
+      105deg,
+      rgba(var(--las__white-RGB), 0) 0%,
+      rgba(var(--las__white-RGB), 0.45) 35%,
+      rgba(var(--las__white-RGB), 0.45) 65%,
+      rgba(var(--las__white-RGB), 0) 100%
+    );
+    transform: translateX(-150%);
+    animation: las-shine 13.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes las-shine {
+  0% {
+    transform: translateX(-150%);
+  }
+
+  90.9% {
+    transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .las__shine::before {
+    animation: none;
+    display: none;
+  }
+}
+
 .quote-container {
   background-color: rgba(var(--las__surface-RGB), 1);;
   border-radius: 2em;

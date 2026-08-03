@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   let animation = null;
 
   button.addEventListener('click', async () => {
+    button.classList.remove('las__shine');
     button.style.display = 'none';
 
     const randomIndex = Math.floor(Math.random() * phrases.length);
@@ -29,5 +30,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     await new Promise(resolve => setTimeout(resolve, HOLD_MS));
 
     button.style.display = '';
+    button.classList.add('las__shine');
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter') return;
+
+    if (document.activeElement === button) return;
+    if (button.style.display === 'none') return;
+
+    button.click();
   });
 });
