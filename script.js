@@ -1,27 +1,62 @@
 import { seregaGentle } from './js/serega-gentle.js';
 
 const HOLD_MS = 1500;
+const PHRASES_URL = 'phrases.md';
+const LIST_MARKER = /^\s*[-—]\s?/;
 
-async function loadPhrases() {
-  const res = await fetch('phrases.md');
-  const text = await res.text();
+export function parsePhrases(text) {
+  const phrases = [];
 
-  const lines = text.split('\n').filter(line => line.trim().startsWith('- '));
-  return lines.map(line => line.replace(/^- /, '').trim());
+  for (const rawLine of text.split('\n')) {
+    const line = rawLine.trim();
+
+    if (line === '' || line.startsWith('#')) continue;
+
+    const phrase = line.replace(LIST_MARKER, '').trim();
+
+    if (phrase !== '' && !phrases.includes(phrase)) phrases.push(phrase);
+  }
+
+  return phrases;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const phrases = await loadPhrases();
+export async function loadPhrases(url = PHRASES_URL) {
+  const res = await fetch(url);
+
+  if (!res.ok) throw new Error(`${url} responded ${res.status}`);
+
+  return parsePhrases(await res.text());
+}
+
+export function pickPhrase(phrases) {
+  if (phrases.length === 0) throw new Error('no phrases to show');
+
+  return phrases[Math.floor(Math.random() * phrases.length)];
+}
+
+async function init() {
   const button = document.getElementById('show-quote');
   const quote = document.getElementById('quote');
+  let phrases;
+
+  try {
+    phrases = await loadPhrases();
+
+    if (phrases.length === 0) throw new Error('no phrases to show');
+  } catch {
+    button.remove();
+    quote.textContent = 'Не удалось загрузить список фраз';
+
+    return;
+  }
+
   let animation = null;
 
   button.addEventListener('click', async () => {
     button.classList.remove('las__shine');
     button.style.display = 'none';
 
-    const randomIndex = Math.floor(Math.random() * phrases.length);
-    const phrase = phrases[randomIndex];
+    const phrase = pickPhrase(phrases);
 
     animation?.destroy();
     animation = seregaGentle(quote, { phrases: [phrase] });
@@ -41,4 +76,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     button.click();
   });
-});
+}
+
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', init);
+}

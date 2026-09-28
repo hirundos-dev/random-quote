@@ -21,6 +21,11 @@ Personal pet project of product designer Andrei Lynnik. A single-page site that 
 - Determine project tools from configuration and documentation; do not silently substitute a missing runner (this project has no package.json).
 - Preserve unrelated user changes; do not apply destructive git commands or kill processes unrelated to the task.
 
+### Tests
+- Run `node --test` from the repo root. Node's built-in runner — no package.json, no dependencies, no install step.
+- Tests live in `tests/`. They import `script.js` directly, so anything `script.js` does at module scope must stay safe without a DOM.
+- Add a test before changing parser, loader or corpus behaviour. Corpus-level tests read `phrases.md` and guard the data itself (mixed scripts, dropped phrases).
+
 ## Fix Protocol
 Every code change must follow `docs/safe-fix.md` — root cause analysis, minimal change, self-check, blast zone verification.
 
@@ -40,6 +45,8 @@ random-quote/
 ├── script.js               # ES module: fetch phrases.md, animate phrase on click
 ├── style.css               # Legacy stylesheet (not linked from index.html)
 ├── phrases.md              # Phrase list, one `- ` per line (source of data)
+├── tests/                  # Tests (node --test)
+│   └── load-phrases.test.js
 ├── js/                     # Scripts
 │   └── serega-gentle.js    # Vendored animation module (serega-gentle skill asset)
 ├── css/                    # Stylesheets
