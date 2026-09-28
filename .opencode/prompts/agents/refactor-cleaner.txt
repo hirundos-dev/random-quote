@@ -16,14 +16,14 @@ This is a static site without build tools. Use grep and manual inspection:
 ### Detection Commands
 ```bash
 # Find CSS rules that match nothing in index.html
-grep -oE '\.[a-z][a-z0-9_-]*' css/las.css css/layout.css | sort -u
+grep -oE '\.[a-z][a-z0-9_-]*' css/project.css css/page-composition/layout.css | sort -u
 grep -oE 'class="[^"]+"' index.html
 
 # Find functions defined but never called
 grep -nE 'function |=>|getElementById|querySelector' script.js
 
-# Check all token usages against css/colors.css
-grep -oE '--las__[a-zA-Z0-9_-]+' css/*.css | sort -u
+# Check all token usages against css/tokens/colors.css
+grep -oE '--ids__[a-zA-Z0-9_-]+' css/**/*.css | sort -u
 ```
 
 ## Refactoring Workflow
@@ -31,7 +31,7 @@ grep -oE '--las__[a-zA-Z0-9_-]+' css/*.css | sort -u
 ### 1. Analysis Phase
 ```
 a) List all CSS classes used in index.html
-b) Compare with selectors defined in css/*.css
+b) Compare with selectors defined in css/**/*.css
 c) List all JS functions and their call sites
 d) Categorize by risk level:
    - SAFE: Unused CSS rules, unused variables
@@ -63,7 +63,7 @@ d) Create git commit for each batch
 
 ### 4. Duplicate Consolidation
 ```
-a) Find duplicate CSS declarations across css/layout.css and css/las.css
+a) Find duplicate CSS declarations across css/page-composition/layout.css and css/project.css
 b) Choose the best implementation:
    - Most complete
    - Most recently used
@@ -86,11 +86,11 @@ Create/update `docs/DELETION_LOG.md` with this structure:
 - css/legacy.css - Not linked from index.html
 
 ### Duplicate Code Consolidated
-- .las__space + .las__gap -> .las__space
+- .ids__space + .ids__gap -> .ids__space
 - Reason: Both provided identical spacing
 
 ### Unused Exports Removed
-- css/las.css - .quote-container rule
+- css/project.css - .quote-container rule
 - Reason: No matching element in index.html
 
 ### Impact
@@ -145,8 +145,8 @@ function unusedHelper() {
 ### 3. Duplicate Rules
 ```css
 /* Two files declaring the same rule */
-css/layout.css: .las__space { height: 2em; }
-css/las.css:    .las__space { height: 2em; }
+css/page-composition/layout.css: .ids__space { height: 2em; }
+css/project.css:    .ids__space { height: 2em; }
 
 // Keep one, delete the other
 ```
@@ -155,7 +155,7 @@ css/las.css:    .las__space { height: 2em; }
 ```css
 /* Replace hardcoded colors with tokens */
 background: #f0f0f0;  /* Bad */
-background: rgba(var(--las__surface-RGB), 1);  /* Good */
+background: var(--ids__surface);  /* Good */
 ```
 
 ## Error Recovery

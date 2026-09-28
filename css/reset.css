@@ -1,0 +1,46 @@
+/* Сброс. Заменяет normalize.css: тот задавал заголовкам шрифтовые размеры и
+   поля, из-за чего `* { box-sizing }` приходилось дублировать в settings.css.
+
+   Отличие от IDS: -webkit-text-size-adjust возвращён из normalize.css. Без
+   него iOS Safari раздувает текст при повороте экрана, а типографика
+   здесь считается в 100vw и от размера шрифта зависит напрямую. */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-synthesis: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--ids__border-width-m) solid var(--ids__link);
+    outline-offset: 2px;
+  }
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0
+}
+
+img {
+  display: block;
+  width: 100%;
+}

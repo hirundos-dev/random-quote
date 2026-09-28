@@ -53,7 +53,7 @@ async function init() {
   let animation = null;
 
   button.addEventListener('click', async () => {
-    button.classList.remove('las__shine');
+    button.classList.remove('ids__shine');
     button.style.display = 'none';
 
     const phrase = pickPhrase(phrases);
@@ -65,7 +65,7 @@ async function init() {
     await new Promise(resolve => setTimeout(resolve, HOLD_MS));
 
     button.style.display = '';
-    button.classList.add('las__shine');
+    button.classList.add('ids__shine');
   });
 
   document.addEventListener('keydown', (event) => {

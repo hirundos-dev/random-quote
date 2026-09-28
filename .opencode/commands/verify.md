@@ -14,15 +14,15 @@ Execute comprehensive verification for this static site (no build step, no packa
 1. **JS Syntax**: `node --check script.js`
 2. **Asset References**: every `src`/`href` in `index.html` and CSS `url()` points to an existing file
 3. **Phrases**: `phrases.md` parses (lines starting with `- `), fetch works
-4. **CSS**: no duplicate selectors, all `--las__*` tokens resolve in `css/colors.css`
+4. **CSS**: no duplicate selectors, all `--ids__*` tokens resolve in `css/tokens/colors.css`
 
 ## Verification Checklist
 
 ### Code Quality
 - [ ] No JS syntax errors
 - [ ] No `console.log` statements
-- [ ] No dead CSS selectors in `css/las.css` (elements exist in `index.html`)
-- [ ] No hardcoded colors — use `var(--las__...)` from `css/colors.css`
+- [ ] No dead CSS selectors in `css/project.css` (elements exist in `index.html`)
+- [ ] No hardcoded colors — use `var(--ids__...)` from `css/tokens/colors.css`
 
 ### Assets
 - [ ] All linked CSS files exist (`colors`, `normalize`, `settings`, `layout`, `las`)

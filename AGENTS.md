@@ -43,20 +43,23 @@ Every code change must follow `docs/safe-fix.md` — root cause analysis, minima
 random-quote/
 ├── index.html              # Single page: quote heading + "Показать фразу" button
 ├── script.js               # ES module: fetch phrases.md, animate phrase on click
-├── style.css               # Legacy stylesheet (not linked from index.html)
 ├── phrases.md              # Phrase list, one `- ` per line (source of data)
 ├── tests/                  # Tests (node --test)
 │   └── load-phrases.test.js
 ├── js/                     # Scripts
 │   └── serega-gentle.js    # Vendored animation module (serega-gentle skill asset)
-├── css/                    # Stylesheets
-│   ├── normalize.css       # Reset (v8.0.1)
-│   ├── colors.css          # Color tokens (CSS custom properties, --las__*)
+├── css/                    # Stylesheets, layered like IDS
+│   ├── tokens/
+│   │   ├── palette.css     # Raw color values (--ids__color-*)
+│   │   ├── colors.css      # Semantic color tokens (--ids__text, --ids__accent)
+│   │   └── scales.css      # Spacers, gaps, radii, durations
+│   ├── reset.css           # Reset (from IDS)
 │   ├── settings.css        # @font-face, fluid typography, density
-│   ├── layout.css          # Wrapper, spacing, responsive layout
-│   ├── las.css             # Component styles (button, quote display)
+│   ├── page-composition/
+│   │   └── layout.css      # Wrapper, text-width, spacers, sequences
+│   ├── project.css         # This project's own visual: quote type, button, shine
 │   └── serega-gentle.css   # Animation styles (serega-gentle skill asset)
-├── fonts/                  # Root UI (active), Onest (available)
+├── fonts/                  # Onest variable, four unicode-range subsets + OFL
 ├── docs/                   # Documentation
 │   ├── safe-fix.md         # Mandatory fix protocol
 │   └── ...                 # Specs and history
@@ -72,17 +75,22 @@ random-quote/
 - Deployed via GitHub Pages from `main` branch.
 
 ### Data Flow
-- `script.js` fetches `phrases.md` on load and parses lines starting with `- `.
+- `script.js` fetches `phrases.md` on load and parses it: a list marker (`-` or `—`, with or without a following space) starts a phrase, headings and blank lines are skipped, each phrase is kept once. A non-ok response or an empty list replaces the button with a visible message rather than failing silently.
 - Clicking the button hides it, picks a random phrase, reveals it with the serega-gentle per-character animation, shows it for ~1.5s, then restores the button.
 - The site works without JS: heading renders, button requires JS.
 
 ### CSS Architecture
-- **Naming:** `las__` namespace prefix for design system classes.
-- **Custom Properties:** semantic color tokens (`--las__*-RGB`), density (`--las__density: 1.3`).
+The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids) (MIT) — its layer order, `ids__` namespace and token set are kept, while the values, the button and the shine are this project's own. Vendored skill assets are the only other copied files.
+- **Naming:** `ids__` namespace prefix for design system classes.
+- **Custom Properties:** semantic color tokens (`--ids__text`, `--ids__accent`, `--ids__border`) over a raw palette (`--ids__color-gray-950`), plus density (`--ids__density: 1.3`) and named scales.
+- **Opacity:** `color-mix(in srgb, var(--ids__token) N%, transparent)`. IDS tokens are whole colors, not `-RGB` triplets — do not reintroduce `rgba(var(--x-RGB), a)`.
+- **Local additions to IDS files carry a comment saying so**, so a future re-sync stays reviewable.
 - **Native CSS Nesting** throughout (Chrome 120+, Firefox 117+).
 - **Fluid Typography:** `calc()` with viewport units, breakpoints 320/768px.
-- **Responsive:** `@media (width < 767px)` range syntax (Chrome 104+, Firefox 113+).
-- **Single light theme** — no dark mode.
+- **Responsive:** `@media (width < 768px)` range syntax (Chrome 104+, Firefox 113+).
+- **Single light theme** — no dark mode. `tokens/colors.css` keeps an unused `.dark` block, so enabling one is a token flip rather than a new system.
+- **Fonts:** Onest, a real `wght` 100–900 variable, self-hosted in four `unicode-range` subsets (a Russian page fetches only latin + cyrillic). `font-weight: 450` is therefore a real weight, not synthesis. `fonts/OFL.txt` ships with it.
+- **Vendored CSS is overridden, never edited** — `project.css` neutralises the per-glyph `will-change` that `serega-gentle.css` puts on ~500 glyphs of a long phrase.
 
 ### Pages
 - Single page (`index.html`). Russian language (`lang="ru"`).
@@ -96,13 +104,13 @@ random-quote/
 - Keep the button id `show-quote` and heading id `quote` — `script.js` depends on them.
 
 ### CSS
-- Follow the existing `las__` naming convention strictly.
-- Use CSS custom properties from `colors.css` (`--las__*`) — no hardcoded color values.
+- Follow the `ids__` naming convention strictly.
+- Use semantic color tokens from `css/tokens/colors.css` — no hardcoded color values.
 - Use fluid typography via `settings.css` variables — no hardcoded `px` font sizes.
 - Prefer `rem`/`em` over `px` for sizing.
 - Test at 320px and desktop (768px+).
 - No CSS preprocessors, no PostCSS, no utility frameworks.
-- `style.css` is legacy and not linked from `index.html`; do not extend it.
+- This project's own component styles go in `css/project.css`. Do not extend vendored files — override them there.
 
 ### JavaScript
 - Vanilla ES6+ only — no frameworks, no jQuery, no build step.
@@ -123,7 +131,7 @@ random-quote/
 - No new dependencies without discussion.
 - No CSS preprocessors (Sass, Less, PostCSS).
 - No JavaScript frameworks or build tools.
-- No hardcoded colors — use tokens from `colors.css`.
+- No hardcoded colors — use semantic tokens from `css/tokens/colors.css`.
 - No hardcoded font sizes — use fluid typography from `settings.css`.
 - No `!important` except for third-party overrides.
 - No inline styles on structural elements.

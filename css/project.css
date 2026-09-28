@@ -1,0 +1,98 @@
+/* Проектный слой. Всё, что принадлежит этому сайту, а не IDS:
+   типографика цитаты, кнопка, блик, отступы.
+
+   Раньше это был css/las.css. Переезд сюда — часть возврата форка к
+   структуре IDS; сами значения не менялись, кроме перехода с
+   rgba(var(--las__*-RGB), a) на color-mix поверх семантических токенов. */
+
+.ids main {
+  /* Отступ для контента над фиксированным footer */
+  padding-bottom: 8rem;
+  padding-top: 4em;
+}
+
+.ids h3 {
+  font-size: 1.8em;
+  font-weight: 450;
+  line-height: 1.2;
+}
+
+button {
+  padding: 0.8em 1.6em;
+  font-size: 1em;
+  font-weight: 450;
+  cursor: pointer;
+  border-radius: 1em;
+  border: none;
+  background-color: color-mix(in srgb, var(--ids__accent) 80%, transparent);
+  color: var(--ids__color-white);
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+button:hover {
+  background-color: var(--ids__accent);
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(1); /* Увеличение при клике */
+}
+
+/* Блик. Перезапускается при каждом клике, потому что script.js снимает и
+   возвращает класс — на этом и держится повтор после показа фразы. */
+
+.ids__shine {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(
+      105deg,
+      transparent 0%,
+      color-mix(in srgb, var(--ids__color-white) 45%, transparent) 35%,
+      color-mix(in srgb, var(--ids__color-white) 45%, transparent) 65%,
+      transparent 100%
+    );
+    transform: translateX(-150%);
+    animation: ids-shine 13.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes ids-shine {
+  0% {
+    transform: translateX(-150%);
+  }
+
+  90.9% {
+    transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ids__shine::before {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Вендорённый serega-gentle.css вешает will-change на каждый глиф, а на
+   длинной фразе глифов около 500 — это сотни слоёв композитора. Селектор
+   на уровень выше, чтобы перебить вендорённый независимо от порядка
+   загрузки стилей. Файл правится через override, сам не трогается. */
+
+.ids .serega-gentle__unit {
+  will-change: auto;
+}

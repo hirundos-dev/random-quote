@@ -24,8 +24,8 @@ Analyze and clean up the codebase: $ARGUMENTS
 - Unused functions / variables in `script.js`
 - Commented-out code
 - Unreachable code
-- Duplicate CSS rules across `css/layout.css` and `css/las.css`
-- Unused design tokens in `css/colors.css`
+- Duplicate CSS rules across `css/page-composition/layout.css` and `css/project.css`
+- Unused design tokens in `css/tokens/colors.css`
 
 ## Removal Phase
 
@@ -34,7 +34,7 @@ Analyze and clean up the codebase: $ARGUMENTS
 1. **Search for usage** - grep for the selector/function in all files
 2. **Check dynamic usage** - `script.js` may reference classes/IDs via `getElementById`
 3. **Document removal** - git commit message
-4. **Never remove tokens from `css/colors.css` without checking all CSS files**
+4. **Never remove tokens from `css/tokens/colors.css` without checking all CSS files**
 
 ### Safe Removal Order
 
@@ -48,12 +48,12 @@ Analyze and clean up the codebase: $ARGUMENTS
 ### Identify Duplicates
 
 - Similar CSS rules with minor differences
-- Repeated layout patterns in `css/layout.css`
+- Repeated layout patterns in `css/page-composition/layout.css`
 
 ### Consolidation Strategies
 
 1. **Extract shared class** - for repeated rule blocks
-2. **Use existing tokens** - replace hardcoded values with `var(--las__...)`
+2. **Use existing tokens** - replace hardcoded values with `var(--ids__...)`
 
 ## Verification
 
@@ -71,14 +71,14 @@ Dead Code Analysis
 ==================
 
 Removed:
-- css/las.css: .quote-container (no matching element in index.html)
+- css/project.css: .quote-container (no matching element in index.html)
 - script.js: unusedFunction() (no callers)
 
 Consolidated:
-- duplicate border-radius declarations → var(--las__radius)
+- duplicate border-radius declarations → var(--ids__radius)
 
 Remaining (manual review needed):
-- css/normalize.css: potentially unused, third-party reset, keep
+- css/reset.css: potentially unused, third-party reset, keep
 ```
 
 ---

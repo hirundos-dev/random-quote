@@ -71,7 +71,7 @@ Links to other codemaps that interact with this area
 ```
 - Read code comments
 - Extract README sections
-- Collect CSS token definitions from css/colors.css
+- Collect CSS token definitions from css/tokens/colors.css
 - Document JS behavior (phrases loading, button interaction)
 ```
 

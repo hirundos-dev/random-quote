@@ -84,7 +84,7 @@ const apiKey = "sk-abc123";  // Bad
 
 This is a static site (random-quote): vanilla HTML/CSS/JS, no build step.
 
-- Design tokens must come from `css/colors.css` (`--las__*`) — no hardcoded colors
+- Design tokens must come from `css/tokens/colors.css` (`--ids__*`) — no hardcoded colors
 - No hardcoded font sizes — use fluid typography from `css/settings.css`
 - CSS uses native nesting; target Chrome 120+, Firefox 117+, Safari 17.2+
 - All UI copy in Russian (`lang="ru"`)
