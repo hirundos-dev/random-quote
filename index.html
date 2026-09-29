@@ -4,6 +4,33 @@
    <meta charset="utf-8" />
     <title>Случайная фраза</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Литерал, а не токен: содержимое meta не умеет читать CSS-переменные.
+         Дублирует --ids__background; после загрузки script.js перезаписывает
+         его вычисленным значением, так что палитра остаётся источником правды. -->
+    <meta name="theme-color" content="#ffffff" />
+    <script>
+      /* Тема применяется в <head>, до первой отрисовки, иначе тёмная страница
+         моргает белой. Правило выбора — resolveTheme в script.js, здесь его
+         однострочный дубль: записанный выбор побеждает системную настройку. */
+      (function () {
+        var stored;
+
+        try {
+          stored = localStorage.getItem('ids-theme');
+        } catch (error) {
+          stored = null;
+        }
+
+        if (stored !== 'dark' && stored !== 'light') {
+          stored = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        document.documentElement.classList.toggle('dark', stored === 'dark');
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', stored === 'dark' ? '#121214' : '#ffffff');
+      })();
+    </script>
     <link rel="stylesheet" href="css/tokens/palette.css" />
     <link rel="stylesheet" href="css/tokens/colors.css" />
     <link rel="stylesheet" href="css/tokens/scales.css" />
@@ -14,6 +41,9 @@
     <link rel="stylesheet" href="css/project.css" />
 </head>
 <body class="ids">
+  <header class="ids__chrome">
+    <button id="theme-toggle" class="ids__theme-toggle" type="button" aria-pressed="false">Тёмная тема</button>
+  </header>
 <main>
    <div class="ids__wrapper">
           <div class="ids__text-width">

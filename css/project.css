@@ -17,7 +17,11 @@
   line-height: 1.35;
 }
 
-button {
+/* Кнопка «Показать фразу». Селектор — по id, а не по элементу: на странице
+   появился второй button, и голый `button` отдавал бы ему заливку главной
+   кнопки. Одно правило вместо того, чтобы отменять семь свойств у второго. */
+
+#show-quote {
   padding: 0.8em 1.6em;
   font-size: 1em;
   font-weight: 400;
@@ -31,13 +35,51 @@ button {
   z-index: 1;
 }
 
-button:hover {
+#show-quote:hover {
   background-color: var(--ids__accent);
   transform: scale(1.05);
 }
 
-button:active {
+#show-quote:active {
   transform: scale(1); /* Увеличение при клике */
+}
+
+/* Служебный хром в углу. Зафиксирован, поэтому композиция цитаты и отступы
+   main не меняются: элемент вынут из потока чтения. Место оставлено с запасом
+   под переключатель языка, который пойдёт следующим шагом.
+
+   Сам тумблер приглушённый — рамка и caption-цвет вместо фиолетовой заливки,
+   чтобы не спорить с главной кнопкой. Надпись статическая: состояние несёт
+   aria-pressed, и имя доступного узла не должно меняться вместе с ним. */
+
+.ids__chrome {
+  position: fixed;
+  top: calc(var(--ids__density) * 0.75rem);
+  right: calc(var(--ids__density) * 0.75rem);
+  z-index: 10;
+
+  /* Отступ IDS для header/footer здесь лишний: позиционирование считает
+     внешний край, а не содержимое. */
+  padding: 0;
+}
+
+.ids__theme-toggle {
+  padding: 0.5em 0.9em;
+  font-size: 0.8em;
+  color: var(--ids__text-caption);
+  background-color: transparent;
+  border: var(--ids__border-width-s) solid var(--ids__border);
+  border-radius: var(--ids__radius-pill);
+  cursor: pointer;
+  transition:
+    color var(--ids__duration-fast) var(--ids__easing-base),
+    border-color var(--ids__duration-fast) var(--ids__easing-base);
+}
+
+.ids__theme-toggle:hover {
+  color: var(--ids__text);
+  background-color: transparent;
+  border-color: var(--ids__text-caption);
 }
 
 /* Блик. Перезапускается при каждом клике, потому что script.js снимает и

@@ -41,11 +41,12 @@ Every code change must follow `docs/safe-fix.md` — root cause analysis, minima
 
 ```
 random-quote/
-├── index.html              # Single page: quote heading + "Показать фразу" button
-├── script.js               # ES module: fetch phrases.md, animate phrase on click
+├── index.html              # Single page: quote + button + theme chrome
+├── script.js               # ES module: fetch phrases.md, animate phrase on click, theme
 ├── phrases.md              # Phrase list, one `- ` per line (source of data)
 ├── tests/                  # Tests (node --test)
-│   └── load-phrases.test.js
+│   ├── load-phrases.test.js
+│   └── theme.test.js
 ├── js/                     # Scripts
 │   └── serega-gentle.js    # Vendored animation module (serega-gentle skill asset)
 ├── css/                    # Stylesheets, layered like IDS
@@ -88,7 +89,9 @@ The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids)
 - **Native CSS Nesting** throughout (Chrome 120+, Firefox 117+).
 - **Fluid Typography:** `calc()` with viewport units, breakpoints 320/768px.
 - **Responsive:** `@media (width < 768px)` range syntax (Chrome 104+, Firefox 113+).
-- **Single light theme** — no dark mode. `tokens/colors.css` keeps an unused `.dark` block, so enabling one is a token flip rather than a new system.
+- **Two themes.** `tokens/colors.css` holds the light `:root` block and the `.dark` block. The class goes on `<html>`, not `<body>` — `color-scheme` has to sit on the root element for the canvas, scrollbars and form controls to follow.
+- **No flash on load.** An inline script in `<head>` applies `.dark` before `<body>` is parsed. It duplicates the one rule from `resolveTheme` in `script.js`; `script.js` owns everything after first paint. Both places must be changed together.
+- **A stored choice beats the OS.** No `localStorage['ids-theme']` means the page follows `prefers-color-scheme` live, including while the setting changes. `resolveTheme(stored, prefersDark)` is that rule, pure and exported for tests.
 - **Fonts:** Onest, a real `wght` 100–900 variable, self-hosted in four `unicode-range` subsets (a Russian page fetches only latin + cyrillic). `font-weight: 450` is therefore a real weight, not synthesis. `fonts/OFL.txt` ships with it.
 - **Vendored CSS is overridden, never edited** — `project.css` neutralises the per-glyph `will-change` that `serega-gentle.css` puts on ~500 glyphs of a long phrase.
 
@@ -102,6 +105,9 @@ The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids)
 - Semantic HTML5 (`<main>`, `<h3>`, `<button>`).
 - Russian language (`lang="ru"`).
 - Keep the button id `show-quote` and heading id `quote` — `script.js` depends on them.
+- Keep the theme id `theme-toggle` — `script.js` depends on it.
+- The only inline `<script>` is the anti-flash theme script in `<head>`. It must stay there: it is the one thing that has to run before the first paint. Everything else is in `script.js`.
+- UI strings are duplicated per page. No runtime i18n — it would mean a build step.
 
 ### CSS
 - Follow the `ids__` naming convention strictly.
