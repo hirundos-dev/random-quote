@@ -44,9 +44,11 @@ random-quote/
 ├── index.html              # Single page: quote + button + theme chrome
 ├── script.js               # ES module: fetch phrases.md, animate phrase on click, theme
 ├── phrases.md              # Phrase list, one `- ` per line (source of data)
+├── favicon.svg             # Inline SVG mark; the old page 404'd on every load
 ├── tests/                  # Tests (node --test)
 │   ├── load-phrases.test.js
-│   └── theme.test.js
+│   ├── theme.test.js
+│   └── page.test.js
 ├── js/                     # Scripts
 │   └── serega-gentle.js    # Vendored animation module (serega-gentle skill asset)
 ├── css/                    # Stylesheets, layered like IDS
@@ -102,9 +104,10 @@ The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids)
 ## Coding Conventions
 
 ### HTML
-- Semantic HTML5 (`<main>`, `<h3>`, `<button>`).
+- Semantic HTML5 (`<main>`, `<h1>`, `<blockquote>`, `<button>`).
+- The page has one `<h1>`, visually hidden via `.ids__visually-hidden`: the quote only exists after a click, so there is no visible heading to carry it. The quote is a `<blockquote>`, not a heading — and the reset does not touch its margin, so `project.css` zeroes it. The browser default `margin: 1em 40px` would otherwise break the centring and the `2em` gap.
 - Russian language (`lang="ru"`).
-- Keep the button id `show-quote` and heading id `quote` — `script.js` depends on them.
+- Keep the button id `show-quote` and the quote id `quote` — `script.js` depends on them.
 - Keep the theme id `theme-toggle` — `script.js` depends on it.
 - The only inline `<script>` is the anti-flash theme script in `<head>`. It must stay there: it is the one thing that has to run before the first paint. Everything else is in `script.js`.
 - UI strings are duplicated per page. No runtime i18n — it would mean a build step.

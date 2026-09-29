@@ -131,6 +131,13 @@ async function init() {
   let animation = null;
 
   button.addEventListener('click', async () => {
+    /* display: none уводит фокус на <body>, и после показа фразы он там и
+       остался бы. Запоминаем, был ли фокус на кнопке, и возвращаем его —
+       но только если пользователь никуда не ушёл. Проверяем и <body>, и саму
+       кнопку: часть браузеров оставляет активным элементом скрытую кнопку,
+       а не сбрасывает фокус на body. Чужой фокус не перехватываем. */
+    const hadFocus = document.activeElement === button;
+
     button.classList.remove('ids__shine');
     button.style.display = 'none';
 
@@ -144,17 +151,10 @@ async function init() {
 
     button.style.display = '';
     button.classList.add('ids__shine');
-  });
 
-  document.addEventListener('keydown', (event) => {
-    if (event.key !== 'Enter') return;
+    const kept = document.activeElement;
 
-    /* Фокус на интерактивном элементе — Enter нажимает именно его. Без этой
-       проверки Enter на переключателе темы показывал бы ещё и фразу. */
-    if (document.activeElement?.matches('button, a[href], input, select, textarea')) return;
-    if (button.style.display === 'none') return;
-
-    button.click();
+    if (hadFocus && (kept === document.body || kept === button)) button.focus();
   });
 }
 

@@ -11,10 +11,31 @@
   padding-top: 4em;
 }
 
-.ids h3 {
+/* Типографика цитаты. Селектор по blockquote, а не по тегу в разметке: сброс
+   не трогает поля blockquote, а браузер даёт ему margin 1em 40px, что ломает
+   и центровку, и зазор 2em в .ids__wrapper. Обнуляем здесь. */
+
+.ids blockquote {
+  margin: 0;
   font-size: 1.6em;
   font-weight: 400;
   line-height: 1.35;
+}
+
+/* Заголовок страницы есть только для структуры и поиска: цитата появляется
+   по нажатию и в разметке её нет, поэтому h1 пришлось скрыть визуально.
+   clip-path вместо устаревшего clip: rect(). */
+
+.ids__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* Кнопка «Показать фразу». Селектор — по id, а не по элементу: на странице
