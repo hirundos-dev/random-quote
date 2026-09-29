@@ -1,0 +1,62 @@
+# Phrases
+
+- Never give up
+- If you want to sell a penguin an iceberg, don't push the ice. Show it how to slide on it
+- Be easy on yourself — it helps you slowly climb out of rescue mode, hear and actually listen to yourself, and keep your time for your own things
+- Even the tiniest step counts
+- Sometimes, to be truly happy, you have to take a step back. Many doors open toward you
+- Everyone is scared, even the pros. The difference between a pro and an amateur is that pros are scared and do it anyway
+- Do what must be done, and come what may
+- Better once on time than ten times right
+- We buy things we don't need, with money we don't need, to impress people we don't like
+- When you wash a mug, think about the mug. It keeps you from scattering your attention across everything in this age of multitasking — and from going mad over the chaos in your head
+- You can part with a thing boldly when holding it brings you not the energy of joy but only the thought of "what if it comes in handy"
+- Even the thinnest pencil beats the strongest memory
+- You start dying the moment your curiosity dies
+- Good time management isn't "getting everything done" but "regularly getting done what matters to you". If you spent the week chasing other people's tasks and got nothing of your own done, that's bad time management
+- Never make important decisions in moments of strong emotion — not negative, not positive. It keeps you from making dumb decisions you'll regret 🙂
+- Always double-check information, especially when it comes in an hysterical tone
+- The secret of almost any undertaking is repeated, focused action
+- If something is wrong, you'll be told. And if no one tells you, that's a problem for the people who stayed silent — not for you
+- What you work is what breaks. The moral: take care of your head, especially if your work is intellectual
+- Often at work and in life there's that "I want". You want the position, you want to move, you want a new mug. Whatever. Ask a person — or sometimes yourself — what it's for, and the real motivation to act surfaces
+- What sets a good producer apart from a bad one is solving problems on the spot and negotiating — not just doing what's told and what's written
+- Wardrobes aren't always a bad thing, but as a rule you need far fewer things than a wardrobe can hold — and a big wardrobe is hard to keep in order
+- Don't be afraid of anything or anyone!
+- Don't overthink, don't cling to the past, don't be afraid of anything — move forward
+- It's fine — what will be, will be; and the way it works out is the way it was meant to
+- Ask, don't assume
+- The harshest criticism goes down easier when our good sides get acknowledged first. It's what a dentist does — starting with novocaine. The tooth still has to be drilled, but the novocaine takes the edge off
+- When you start any conversation, you can steer it toward what interests the other person — that is, try to spark their enthusiasm
+- Express approval at the slightest win and encourage every success. Be sincere in your judgment and generous with praise
+- Making mistakes is cool and useful
+- Every difficulty that lands in your life is a compliment from life itself. There's no point in beating yourself up or treating it all like a tragedy — it's a brilliant chance to test yourself and what you're made of
+- Give the other person the chance to vent
+- If you want enemies, outshine your friends. But if you want friends, let them outshine you
+- When you're right, persuade people politely and tactfully; when you're wrong, admit your mistakes quickly and with enthusiasm
+- So figure out what you like and put your effort into that. Real life is trickier, of course — sometimes you end up spending more on the "taxes" than on what you love, because we all have bills to pay. But it's temporary; what matters is not to cave and to keep holding your course
+- A great body and a healthy mind come from training a little, but often
+- The path to any goal = focus + discipline
+- Ask questions instead of giving orders
+- Setbacks happen as regularly as the seasons change
+- Better to act and get it wrong than to stall waiting to get it perfectly right
+- You have to learn to handle the small everyday difficulties. Do, and you grow the endurance and persistence muscles — and even harder situations end up easier than you could have imagined
+- Whenever a problem comes up in your life, get to solving it right away. Don't waste time on worry and self-pity — it helps no one and just burns your energy
+- If I don't feel fear before a new step, that's a sign the step I planned is too small for me
+- If something scares you, do it
+- Don't settle for less. Settle for less and less is what you'll get
+- Put yourself first
+- No matter what happens, you'll manage
+- Whatever you do, give it a hundred percent
+- Keep doing the same thing and you'll keep getting the same result
+- You are the only person responsible for your needs, your wants, and your happiness
+- Ask for what you want
+- If what you're doing isn't working, try another way
+- Speak plainly and clearly, and learn to say "no"
+- Let people help you
+- Be honest with yourself
+- Don't let yourself be mistreated. By anyone. Ever.
+- Instead of waiting for the situation to get better, just get out of it
+- Never allow what you consider unacceptable — never
+- Live with integrity. Decide what feels right to you, then act exactly on it
+- Accept the consequences of your actions
