@@ -20,8 +20,12 @@ const ruCount = parsePhrases(
   readFileSync(new URL(RU, import.meta.url), 'utf8'),
 ).length;
 
-test('two batches are in the English corpus', () => {
-  assert.ok(phrases.length >= 60, `only ${phrases.length} phrases so far`);
+test('the English corpus matches the Russian corpus in full', () => {
+  assert.equal(
+    phrases.length,
+    ruCount,
+    `EN has ${phrases.length} phrases, RU has ${ruCount}`,
+  );
 });
 
 test('no English phrase carries a Cyrillic character', () => {
@@ -43,11 +47,4 @@ test('no English phrase is repeated', () => {
     assert.ok(!seen.has(p), `phrase ${i + 1} is a duplicate`);
     seen.add(p);
   }
-});
-
-test('the English corpus never outruns the Russian one', () => {
-  assert.ok(
-    phrases.length <= ruCount,
-    `EN has ${phrases.length} phrases, RU has ${ruCount}`,
-  );
 });

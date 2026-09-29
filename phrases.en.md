@@ -60,3 +60,257 @@
 - Never allow what you consider unacceptable — never
 - Live with integrity. Decide what feels right to you, then act exactly on it
 - Accept the consequences of your actions
+- Take care of yourself
+- Face difficulties and conflicts head-on
+- Be ready to let go of what you have to get what you want
+- Enjoy yourself
+- You can't keep everything under control. Relax. Let things be whatever they'll be
+- Nothing can bring an aristocrat down. Always do what's most convenient — and everything will turn out great
+- Luck runs out against whoever holds their line firmly. No luck once, twice, a hundred times — but not forever. And when you find the skill and courage to hold on through any run of bad luck — that's when you're alright; and at the first crumb of luck — and these crumbs fall to everyone! — you'll roll on like a tank
+- When you can reach your goal without luck — on your own back and wits, under any circumstances at all — that's when luck comes to meet you on its own
+- If you keep buying things, in ten years you'll have lots of things. If you keep buying money (assets) — you'll have lots of assets
+- Don't be modest — nobody gives a damn about you anyway, so why pile humility on top. No modesty. Only forward. The world only has time for winners; it has no time for losers. Only forward!
+- Strip everything extra out of your life, leaving only what truly matters. That goes for material things, and for your mindset and way of life as a whole
+- Making big and small decisions is exhausting. So the choice you make doesn't have to be the best one — it just has to cost you less than the time you spent making it
+- One quality, useful idea that keeps being reused is a thousand times better than ten useless articles
+- Don't always do only what you were asked to do — sometimes do what nobody asked for. It's more fun
+- The ability to admit your mistakes is the mark of confident people you can trust
+- Winners don't cling to a situation that doesn't suit them
+- Winners don't waste time hoping circumstances will take a turn for the better
+- Don't listen to what others say. Just do your thing
+- Stop thinking, time to get to work
+- Winners know that action is the deciding factor. Just take it and do it
+- If you've made it, be happy. Take a short break and celebrate your luck. Be grateful and glad — give yourself over to the good feelings completely
+- Whoever stops fighting has already lost
+- Unfair criticism doesn't touch us. The only one who can hurt us is ourselves
+- People usually want to grab every opportunity, afraid to miss one. But that approach spreads their effort thin and they end up succeeding at nothing
+- The first decision is far from always the right one. And ideas born of persistence, not inspiration, aren't necessarily forced and less creative
+- If something seems too hard, it just means your first step isn't small enough
+- A tool is an object that lets me do something, accomplish something, and so add meaning to life — while things are often bought just to satisfy an impulse
+- Don't neglect casual acquaintances — they're never useless
+- A way to test a decision for honesty and ethics: imagine it on the front page of a newspaper, read by your friends and family. How would you feel? If you wouldn't be ashamed, everything's fine
+- Don't get used to the inconvenient. Instead of moaning, suffering, and adapting to uncomfortable circumstances, think about how to change the situation and optimize the process
+- There are "your people" in life, even if you haven't met them yet
+- The necessary events and changes will happen — pleasant and not, but that's the path
+- You'll find a job that fits you — one where they're waiting for and will value exactly you and your unique abilities
+- You'll meet someone with that special connection — everything will be easy and there won't be a single doubt
+- If your paths with a friend diverge, it means you've walked your shared path and it's time to move on and meet new people for the next stretch of your shared path
+- True friends who are close in spirit never really disappear
+- When something is lost or broken beyond repair, something new and even better than before will appear
+- There's at least one person in the world who always loves you, values you, supports you and is on your side — and that's you
+- Sincerely try to look at any situation from the other person's point of view
+- Smile
+- Do what you like. Learn. Teach. Grow. Change yourself from within
+- Use every moment and every person to learn something new. Learn to ask the right questions — even a taxi driver can be a priceless source of information
+- Step out of your "comfort zone". Go somewhere you've never been, drive to work another way, dig into a problem you know nothing about — expand your knowledge and your horizons
+- Invest — because a rich person is not the one who earns a lot, but the one who invests a lot. Try to invest in assets, minimize liabilities and keep your spending in check
+- Get rid of the clutter. Fewer things — less dust and fewer headaches
+- Accept the world as it is. Drop value judgments, take every phenomenon as neutral by default. Even better — as clearly positive
+- Forget what happened in the past. It has nothing to do with your future. Take from it only experience, knowledge, good relationships and positive impressions
+- Don't be afraid. There are no insurmountable obstacles, and all doubt lives only in your head. You don't have to be a warrior — it's enough to see the goal, walk around the obstacles and know you'll reach it without a single chance of failure
+- You should let go of a thing boldly even when, holding it in your hands, you feel not the energy of joy but only the thought of "what if it comes in handy"
+- Never expect anything from anyone, ever. Then you'll be pleasantly surprised on the regular and won't suffer. All suffering comes from inflated, baseless expectations
+- Learn to fence yourself off from outside influences. Even the nicest person can cause stress. A "do not disturb" sign is appropriate on more than just a hotel door
+- You should know that you can choose between such people. We don't have to spend time with everyone who crosses our path. Our free will is stronger than we think. We can influence our own destiny very significantly
+- Don't push your help on anyone. The one who doesn't ask for your advice most often doesn't need it. Help for adults and children alike should, as a rule, rest on the same principle: teach people to help themselves
+- And if you need help yourself, ask people who have achieved more than you. There's no point listening to advice from those who know nothing — more often than not you'll hear complaints about their own hard lot instead of advice
+- If you surround yourself with successful people, success will come much easier. Find people in your circle who expect more from you. Such expectations on their part can become a powerful driver of your growth
+- It's very important not to let yourself be stopped. You'll never achieve serious success if the people around you keep trying to slow you down. My advice may sound harsh, but you have to part with such people decisively. Don't let them tie your hands. By stopping your own growth you help neither yourself nor others
+- Winners give generously to themselves. They spend time with people who don't settle for what they already have. Winners make sure the people around them can help, and in turn help them themselves. Surround yourself with winners and you'll keep growing and developing. You'll become a winner too. Life can exist only while energy keeps flowing. Whoever tries to break this flow breaks the laws of nature. The more we give, the fuller and more intense our life is
+- Tell yourself "I AM IRON"
+- Tell yourself "I CAN DO ANYTHING"
+- Tell yourself "I ALWAYS GET WHAT I'M AFTER"
+- Tell yourself "DIFFICULTIES DON'T EXIST FOR ME"
+- Tell yourself "I LAUGH AT BAD LUCK"
+- Tell yourself "LIFE BELONGS TO WINNERS"
+- Tell yourself "DO IT OR DIE!"
+- Tell yourself "I GET MY WAY AT ANY COST"
+- Tell yourself "I WALK THROUGH LIFE LIKE A TANK"
+- Tell yourself "I AM CHARMING, STRONG, RESOURCEFUL, CHEERFUL"
+- Tell yourself "I BEND FATE TO MY WILL"
+- Tell yourself "LUCK IS ALWAYS WITH ME"
+- Tell yourself "LIFE IS A FIGHT, AND I AM AN UNDEFEATED FIGHTER"
+- Tell yourself "I'M NOT AFRAID OF ANYTHING"
+- Tell yourself "I'M A WINNER, AND LIFE BELONGS TO ME!"
+- Tell yourself "I am confident in myself"
+- Tell yourself "I am invincible"
+- Tell yourself "I don't fuss and I don't fidget"
+- Tell yourself "I can take every circumstance of life into account"
+- Tell yourself "I don't take trifles to heart"
+- The way you spend every day is the way you spend your life
+- Don't compare your beginning to someone else's middle
+- The horse is dead — get off!
+- You always want to give up right before your biggest breakthrough
+- Only disciplined people live freely. Without enough discipline you are a slave to your mood. You are a slave to your own passions
+- Lend exactly as much as you're ready to simply give away
+- Perfect conditions will never exist. Learn to work in hard ones
+- Before you answer, give yourself time to think. It's not scary — they can wait, but the conversation will be ten times better
+- Wash the dishes right after buckwheat...
+- Your expectations are your problems
+- You're not a hundred-dollar bill for everyone to like you
+- Do what you must and come what may
+- Eat the elephant piece by piece
+- Better to do it mediocre now than perfect never
+- Come on, the best thing you have is you
+- Nobody gives a sh*t about you anyway — and you're still being modest
+- No one will die if I think about it in the morning
+- If you can't figure something out in twenty minutes, go to someone who knows and ask
+- Nobody knows the right way
+- Don't try to go against the existing rules and break the system — look for ways to improve it
+- Get the f**k off your own back
+- Sort things out little by little and regularly, and the pile of accumulated tasks won't press on you so hard
+- Sometimes, to taste water, you have to feel real thirst
+- You have to constantly think through the wildest scenarios and memorize in advance how you'll behave in each one
+- To break the rules, you first have to learn the rules really well and learn to play by them. Only then start breaking them
+- Don't count your chickens before they hatch
+- If you love riding, you've got to love hauling the sled
+- Not every day is a holiday
+- Appetite comes with eating
+- Even Homer sometimes nods
+- Nobody can be sad while holding a balloon!
+- People go crazy one by one. Only the flu infects everyone together
+- Rest, a change of activity and doing something new often help us improve our skills and tools. On the contrary, stubbornly pushing on through force is a useless attempt to compensate with willpower for an inability to handle the task at this point in life
+- If you're afraid of wolves, don't go into the woods
+- You can't pull a fish out of a pond without effort
+- Water doesn't flow under a lying stone
+- Don't have a hundred rubles, have a hundred friends
+- An old friend is better than two new ones
+- A friend in need is a friend indeed
+- If you knew where you'd fall, you'd have laid down straw
+- If you chase two hares, you'll catch neither
+- A wolf is fed by its legs
+- Work fears its master
+- Sometimes honest, but out of place
+- You can't hang everything on a single nail
+- New periods in life are like the weather, like a change of season. If the sun is gone and snow has fallen, you adapt: take off your flip-flops and put on a fur coat. And keep living on in the new conditions
+- Desire is a thousand possibilities; reluctance is a thousand reasons
+- Those who live in glass houses shouldn't throw stones at others
+- What is forbidden attracts especially strongly
+- Life gets much more fun if you approach all its challenges creatively
+- Children are the only people who love you just because. So it's very foolish to trade their attention for work, entertainment and the rest. And you can't get your time back
+- Maybe it really is better to be a happy plumber than a sad director
+- You must always wash your hands after going outside
+- Take a load you can carry, so you don't stumble while walking
+- If you love honey, you've got to love the cold too
+- Live longer — you'll see more
+- Learn to value what you have, because it can be worse
+- Life needs complications so that when you clear them away later, it becomes easier
+- I know people who laugh under the lash and people who groan at a slap. Is it that the things themselves are strong, or that we are weak
+- Instead of "it's a total shitshow right now", better to say "there's potential for growth here" — because if you rate something as a total shitshow, you won't want to try. And potential for growth gives hope
+- Ask yourself: why am I right now doing what I was asked to do?
+- Ask yourself: "What do I keep dragging through life only because I paid too much for it, and what would I have stopped long ago if I were starting from scratch with what I know today?"
+- Lord, give me strength to see it through, courage to quit, and the wisdom to tell one situation from another
+- Only by losing everything completely do we gain freedom
+- No progress without struggle
+- Imagine you're dead. You've lost everything. Now you have nothing to fear
+- The best blow in your life is the one you don't even suspect
+- You have to understand for yourself what you want
+- This is your life, and it gets shorter every minute
+- By accumulating things you become their slave
+- It's better to brush your teeth after breakfast, but not right away. Rinse your mouth and wait at least half an hour
+- Don't forget to go for a walk or otherwise use your muscles (they're the ones that burn glucose) after eating
+- Never spend time on problems that will resolve themselves without you
+- Try not to walk the beaten paths
+- Whoever can't stop and pause experiences nothing but a repeat of what they've already lived
+- Don't look for the guilty one — think about what you can do yourself
+- Clear the table — put five things back in their place
+- Do ten squats
+- Drink a glass of water
+- Breathe deeply five times
+- Our destiny is in our actions
+- Those who can only work on a subject they love are amateurs — for them it's not work, it's a hobby. A professional finds everything interesting and gets pleasure from the process and the result. An interesting subject is a bonus, not a required element
+- A professional doesn't wait for inspiration — he sets himself a supertask in a subject that looks boring at first glance. He dives in, finds interesting patterns in it and does every task that comes his way with equal attention
+- Inspiration is for amateurs
+- It's unpleasant. It stings your pride. But when I take responsibility for a failure, people trust me — clients, colleagues, managers. They see that I don't dodge responsibility and don't let them down. And then I can expect the same from them. And then problems get solved. Don't blame others — lead them
+- A person should slowly accustom themselves to the good. Cultivate taste. Stop consuming garbage in all its forms: in food, in communication, in the information field. Why? The result will be not only a better quality of life, but higher productivity
+- To beat opponents who play better than you, you must spend on self-study not just a lot of time (by your own subjective assessment), but more time (objectively) than your opponents spend. Otherwise you simply won't catch up
+- Make quality decisions within a balanced strategy
+- The well-fed don't understand the hungry
+- You never know where you'll find something or where you'll lose it
+- The devil is not as scary as he's painted
+- Patience and effort grind everything down
+- Free cheese only comes in a mousetrap
+- Always invest in the future, not in the past
+- The first decision - far from always the right one. And ideas born of persistence, not inspiration, aren't necessarily forced and less creative
+- The best creative ideas often ripen gradually, as you sink deeper into the subject. Integrating new knowledge into working memory takes effort and time. Only after "working on the problem" do deep associations and less obvious solutions begin to form — the ones that ultimately lead to real creative breakthroughs
+- Don't promise if you're not sure you'll keep your promise
+- Carry yourself simply, with dignity, without dandyism. You must remember the line where dignified politeness ends and fawning begins
+- Don't write thoughtless letters and reports in the heat of the moment. Open up less — you'll regret it. Remember: my tongue is my enemy!
+- Don't carouse — you won't prove your bravery, and you'll compromise yourself
+- Don't rush to get on a familiar footing with a person you don't know well enough
+- Avoid money dealings with friends. Money always spoils relationships
+- Don't take to heart the insulting remarks, jibes and mockery said behind your back — something that often happens on streets and in public places. Be above it. Walk away — you won't lose, and you'll avoid a scandal
+- If you can't say anything good about someone, refrain from speaking ill even if you know it
+- Don't neglect anyone's advice — listen to it. Whether to follow it is, of course, up to you. Knowing how to make use of another's good advice is an art no smaller than giving good advice to yourself
+- The strength of an officer is not in impulses but in unshakable calm
+- Protect the reputation of a woman who trusted you, whoever she is
+- There are moments in life when you have to silence your heart and live by reason
+- A secret told by you to even one person stops being a secret
+- Stay on your guard and don't let yourself go. In an argument, let your words be soft and your arguments firm
+- Try not to offend your opponent, but to convince him
+- Nothing teaches like the realization of your own mistake. It's one of the main tools of self-education. Only the one who does nothing makes no mistakes
+- When two people quarrel, both are always at fault
+- Authority is earned through knowledge of the job and the service. It's important that subordinates respect you, not fear you. Where there's fear, there's no love — only concealed ill will or hatred
+- There's nothing worse than indecision. Better a bad decision than hesitation or inaction. A missed moment won't come back
+- The one who fears nothing is more powerful than the one everyone fears
+- Do it normally — and it will be fine
+- You just need to work, not be afraid to publish the results
+- Winners always take full responsibility and never hand anyone power over their own life. They know they can't influence every event that will happen to them, but they're sure they can always decide what meaning to give to these events and how to react to them
+- There are no unsolvable problems — there are unpleasant decisions
+- There are no words "I can't", only words "I don't want to"
+- In short: first study the rules, then start thinking outside them. And stick your rebelliousness up your ass
+- Do what you must, and come what may
+- When you can reach your goal without luck - on your own back and wits, under any circumstances at all - that's when luck comes to meet you on its own
+- Luck runs out against whoever holds their line firmly. No luck once, twice, a hundred times - but not forever. And when you find the skill and courage to hold on through any run of bad luck - that's when you're alright; and at the first crumb of luck - and these crumbs fall to everyone! - you'll roll on like a tank
+- You have to spit on luck - then it will come on its own. And be ready for it: it won't help the unworthy - he won't be able to use it or hold on to it. You have to earn it, but you can't count on it: who carries himself gets carried
+- Tell yourself: the only thing that can happen to me today is one more beautifully lived day
+- Today is your chance to feel gratitude toward the people you love and who love you, toward the wonderful moments life gives
+- Today will be whatever I make of it. I have firmly decided to see my chance in every day I live and to use it
+- As we grow older, we'll regret only one thing - the things we didn't do. Imagine how unpleasant it will be to one day look back and ask yourself: what could my life have been if I had set higher goals for myself?
+- Remember that there is no prison scarier than the one in your head
+- The main rule of life: don't be afraid to ask
+- When solving difficult problems in any area of life, use the ABC goal system - three goals: A-goal, B-goal and C-goal. In the marathon context they meant the following: goal A - finish the run with the best possible time, goal B - finish with a good time, goal C - just make it to the finish. The idea is simple: if difficulties arise during the run, people who have only goal A will most likely drop out when they realize it can't be reached. But if they have goals B and C, it will help them hold on
+- There are no such things as strengths and weaknesses. Every trait is both strong and weak at the same time. It all depends on how you use them
+- There are no magic books, podcasts or websites. The books that helped me won't necessarily help anyone else. People are different, circumstances are different. Just read whatever seems interesting
+- Experiment. Make mistakes. Fix them
+- "Luck that we create ourselves." To be intuitively insightful means: a) to be attentive and notice the unexpected; b) to make sense of the unexpected so you understand how to use it to your advantage; c) to be decisive enough to act
+- To drive out anxiety, fence off the past and the future with iron doors. Live in the sealed compartment of today
+- When worry sets in: 1. Ask yourself: "What is the worst thing that could happen? 2. Accept it if necessary. 3. Then calmly figure out how to improve the situation
+- Gather the facts. Don't make decisions until you have enough information to base them on
+- Analyzed the facts - made a decision - started acting, and you don't worry about the result
+- Stay busy. Worry comes from idleness — get busy and you'll be happy
+- Don't get upset over trifles that should be despised and forgotten. Life is too short for that
+- How to tell that a matter has no prospects — ask yourself: "Haven't I already paid more than it's actually worth?"
+- Don't saw sawdust. Don't worry about past mistakes — you can't go back and fix them anyway
+- Think and behave cheerfully, and you'll feel cheerful
+- Trying to take revenge can bring more harm to you than to your enemies
+- Never spend even a minute thinking about the people who are unpleasant to you
+- Instead of suffering from ingratitude, don't expect gratitude
+- Do good for your own joy
+- Learn to draw benefit not only from success, but from losses and failures
+- Take an interest not only in yourself, but in those around you
+- Criticism is not scary, it's useful. Nobody ever beats a dead dog
+- Rest before you get tired
+- In this life everything worthwhile comes very hard
+- Lately I've been thinking a lot that sometimes you have to take risks. The main thing is to overcome your fear. Because every time you take a risk, no matter how it ends, you're still glad you took it
+- Book one medical checkup or finally get to the dentist
+- Delete one major source of digital clutter
+- Write a short message to a person you've lost touch with
+- Make a list "People I can ask for help"
+- Set up a "tax on yourself": a regular automatic transfer to your savings or investment account
+- Make an emergency list: contacts, bank accounts, some passwords
+- Ask yourself: "Who am I? What am I doing here? How long since I last made a backup?"
+- Tell a dear person what you feel, because life is so fleeting
+- The best way to create is to steal from other authors
+- Paper is thinner than a human hair, yet it covers your ass better than an armored sheet
+- Verbal instructions are advisory in nature
+- Take care of your own body — the foundation of the soul and the basis for a strong psyche. Don't kill yourself with stress, alcohol and other excesses; instead, do sports with doubled dedication
+- The main recipe for courage is the understanding that you can always change your mind
+- Many people are afraid to make the wrong choice and face its consequences, but if you replace a difficult choice with a hypothesis, then instead of serious consequences you get the results of an experiment. And that's not scary at all
+- Say "yes" if you feel it's a "yes", and say "no" if you understand it's a "no"
+- There's no rule that says you must endure and sacrifice yourself. You can simply choose not to work with people because you don't like them, without a good reason
+- Hanlon's razor: never attribute to malice what can be fully explained by stupidity
+- You should assume as little as possible and find out as much as possible
+- It's worth building the habit of asking yourself "what don't I know?" and "what don't they know?"
+- We can do (really well) only what we believe in
+- Grant me the mind and peace of soul to accept what I cannot change, the courage to change what I can, and the wisdom to tell one from the other

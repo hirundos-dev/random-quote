@@ -46,7 +46,7 @@ random-quote/
 │   └── index.html          # English page (/en/), same structure, `../` asset paths
 ├── script.js               # ES module: fetch corpus, animate phrase on click, theme
 ├── phrases.md              # Russian phrase list, one `- ` per line (source of data)
-├── phrases.en.md           # English phrase list (Phase 4 — absent until translated)
+├── phrases.en.md           # English phrase list, full 314-phrase mirror of phrases.md
 ├── favicon.svg             # Inline SVG mark; the old page 404'd on every load
 ├── tests/                  # Tests (node --test)
 │   ├── load-phrases.test.js
