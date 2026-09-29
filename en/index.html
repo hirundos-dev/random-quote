@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-phrases="../phrases.en.md" data-load-error="Could not load the phrase list">
+<html lang="en" data-phrases="../phrases.en.md" data-load-error="Could not load the phrase list" data-greeting="If you ever feel lonely, remember I'm always with you">
 <head>
   <meta charset="utf-8" />
   <title>Random phrase</title>
@@ -51,15 +51,15 @@
   <link rel="stylesheet" href="../css/settings.css" />
   <link rel="stylesheet" href="../css/page-composition/layout.css" />
   <link rel="stylesheet" href="../css/serega-gentle.css" />
+  <link rel="stylesheet" href="../css/serega-emotional.css" />
   <link rel="stylesheet" href="../css/project.css" />
 </head>
 <body class="ids">
   <header class="ids__chrome">
     <nav class="ids__lang" aria-label="Language">
-      <a href="../" hreflang="ru" lang="ru">RU</a>
-      <span lang="en" aria-current="page">EN</span>
+      <a href="../" hreflang="ru" aria-label="Russian"><svg viewBox="0 0 24 24" aria-hidden="true"><clipPath id="uk-flag"><circle cx="12" cy="12" r="12"/></clipPath><g clip-path="url(#uk-flag)"><path d="M0 0v24h24V0z" fill="#012169"/><path d="M0 0l24 24M24 0L0 24" stroke="#fff" stroke-width="4"/><path d="M0 0l24 24M24 0L0 24" stroke="#c8102e" stroke-width="2.4"/><path d="M12 0v24M0 12h24" stroke="#fff" stroke-width="6"/><path d="M12 0v24M0 12h24" stroke="#c8102e" stroke-width="3.6"/></g></svg></a>
     </nav>
-    <button id="theme-toggle" class="ids__theme-toggle" type="button" aria-pressed="false">Dark theme</button>
+    <button type="button" id="theme-toggle" class="ids__theme-toggle" aria-pressed="false" aria-label="Toggle theme"><svg class="ids__icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="ids__icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
   </header>
   <main>
     <div class="ids__wrapper">
@@ -67,9 +67,10 @@
         <h1 class="ids__visually-hidden">Random phrase</h1>
         <blockquote id="quote"></blockquote>
       </div>
-      <button id="show-quote" class="ids__shine">Show a phrase</button>
+      <button id="show-quote" class="ids__shine">Get advice</button>
     </div>
   </main>
+  <footer class="ids__dedication">Dedicated to Mark and Leonid</footer>
   <script type="module" src="../script.js"></script>
 </body>
 </html>

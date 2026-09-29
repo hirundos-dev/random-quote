@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-phrases="phrases.md" data-load-error="Не удалось загрузить список фраз">
+<html lang="ru" data-phrases="phrases.md" data-load-error="Не удалось загрузить список фраз" data-greeting="Если когда-нибудь тебе станет одиноко, то помни, я всегда с тобой">
 <head>
   <meta charset="utf-8" />
   <title>Случайная фраза</title>
@@ -51,15 +51,15 @@
   <link rel="stylesheet" href="css/settings.css" />
   <link rel="stylesheet" href="css/page-composition/layout.css" />
   <link rel="stylesheet" href="css/serega-gentle.css" />
+  <link rel="stylesheet" href="css/serega-emotional.css" />
   <link rel="stylesheet" href="css/project.css" />
 </head>
 <body class="ids">
   <header class="ids__chrome">
     <nav class="ids__lang" aria-label="Язык">
-      <span lang="ru" aria-current="page">RU</span>
-      <a href="en/" hreflang="en" lang="en">EN</a>
+      <a href="en/" hreflang="en" aria-label="English"><svg viewBox="0 0 24 24" aria-hidden="true"><clipPath id="ru-flag"><circle cx="12" cy="12" r="12"/></clipPath><g clip-path="url(#ru-flag)"><rect width="24" height="24" fill="#fff"/><rect y="8" width="24" height="8" fill="#0039a6"/><rect y="16" width="24" height="8" fill="#d52b1e"/></g></svg></a>
     </nav>
-    <button id="theme-toggle" class="ids__theme-toggle" type="button" aria-pressed="false">Тёмная тема</button>
+    <button type="button" id="theme-toggle" class="ids__theme-toggle" aria-pressed="false" aria-label="Переключить тему"><svg class="ids__icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="ids__icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
   </header>
   <main>
     <div class="ids__wrapper">
@@ -67,9 +67,10 @@
         <h1 class="ids__visually-hidden">Случайная фраза</h1>
         <blockquote id="quote"></blockquote>
       </div>
-      <button id="show-quote" class="ids__shine">Показать фразу</button>
+      <button id="show-quote" class="ids__shine">Получить совет</button>
     </div>
   </main>
+  <footer class="ids__dedication">Посвящается Марку и Леониду</footer>
   <script type="module" src="script.js"></script>
 </body>
 </html>

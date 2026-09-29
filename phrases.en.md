@@ -1,5 +1,6 @@
 # Phrases
 
+- If you ever feel lonely, remember I'm always with you
 - Never give up
 - If you want to sell a penguin an iceberg, don't push the ice. Show it how to slide on it
 - Be easy on yourself — it helps you slowly climb out of rescue mode, hear and actually listen to yourself, and keep your time for your own things

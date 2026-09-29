@@ -22,8 +22,9 @@
   line-height: 1.35;
 }
 
-/* Заголовок страницы есть только для структуры и поиска: цитата появляется
-   по нажатию и в разметке её нет, поэтому h1 пришлось скрыть визуально.
+/* Заголовок страницы есть только для структуры и поиска: случайная цитата
+   появляется по нажатию, стартовая фраза приветствия приходит из JS — в
+   разметке живой цитаты нет, поэтому h1 визуально скрыт.
    clip-path вместо устаревшего clip: rect(). */
 
 .ids__visually-hidden {
@@ -38,7 +39,7 @@
   white-space: nowrap;
 }
 
-/* Кнопка «Показать фразу». Селектор — по id, а не по элементу: на странице
+/* Кнопка «Получить совет». Селектор — по id, а не по элементу: на странице
    появился второй button, и голый `button` отдавал бы ему заливку главной
    кнопки. Одно правило вместо того, чтобы отменять семь свойств у второго. */
 
@@ -66,12 +67,8 @@
 }
 
 /* Служебный хром в углу. Зафиксирован, поэтому композиция цитаты и отступы
-   main не меняются: элемент вынут из потока чтения. Место оставлено с запасом
-   под переключатель языка, который пойдёт следующим шагом.
-
-   Сам тумблер приглушённый — рамка и caption-цвет вместо фиолетовой заливки,
-   чтобы не спорить с главной кнопкой. Надпись статическая: состояние несёт
-   aria-pressed, и имя доступного узла не должно меняться вместе с ним. */
+   main не меняются: элемент вынут из потока чтения. Внутри — два кружка,
+   язык и тема, оба мелкие, чтобы не спорить с главной кнопкой. */
 
 .ids__chrome {
   position: fixed;
@@ -80,68 +77,101 @@
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 0.2em;
 
   /* Отступ IDS для header/footer здесь лишний: позиционирование считает
      внешний край, а не содержимое. */
   padding: 0;
 }
 
-/* Переключатель языка. Локаль живёт в пути, поэтому переключение — обычная
-   ссылка и работает без JavaScript. Текущая локаль — span с aria-current, а не
-   ссылка: переходить на ту же страницу некуда. Высота и кегль совпадают с
-   тумблером, чтобы в углу читался один кластер, а не два разных элемента.
-   Признак текущей локали берём из самого aria-current, а не из лишнего
-   класса: состояние объявлено в разметке один раз. */
+/* Переключатели языка и темы — два кружка 24×24 в одном стиле. Язык: локаль
+   живёт в пути, поэтому переключение — обычная ссылка и работает без
+   JavaScript; кружок показывает флаг текущей локали и ведёт на другую.
+   Тема: одна кнопка, aria-pressed несёт состояние, а иконку показывает CSS
+   по html.dark — класс инлайн-скрипт ставит до первой отрисовки, поэтому
+   иконка верна с первого кадра, ещё до script.js.
 
-.ids__lang {
-  display: flex;
-  align-items: stretch;
-  font-size: 0.8em;
-  line-height: 1.15;
-  border: var(--ids__border-width-s) solid var(--ids__border);
-  border-radius: var(--ids__radius-pill);
-  overflow: hidden;
-}
+   Размер фиксирован в px, а не в rem: корневой кегль флюидный (14→22.5px),
+   и 1.5rem раздуло бы кружок на десктопе. 24px — просьба автора, размер
+   иконок под него подобран (14px в теме). */
 
-.ids__lang > * {
+.ids__lang > a,
+.ids__theme-toggle {
   display: flex;
   align-items: center;
-  padding: 0.5em 0.9em;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: var(--ids__border-width-s) solid var(--ids__border);
+  border-radius: 50%;
   color: var(--ids__text-caption);
+  background-color: transparent;
   text-decoration: none;
+  cursor: pointer;
   transition:
     color var(--ids__duration-fast) var(--ids__easing-base),
     background-color var(--ids__duration-fast) var(--ids__easing-base);
 }
 
-.ids__lang > [aria-current] {
-  color: var(--ids__text);
-  background-color: var(--ids__surface);
-}
-
-.ids__lang > a:hover {
+.ids__lang > a:hover,
+.ids__theme-toggle:hover {
   color: var(--ids__text);
   background-color: color-mix(in srgb, var(--ids__text) 8%, transparent);
 }
 
+/* Кнопка темы — настоящий button: убираем браузерные заливку и шрифт, чтобы
+   она читалась как кружок. Фокус оставляем браузеру. */
+
 .ids__theme-toggle {
-  padding: 0.5em 0.9em;
-  font-size: 0.8em;
-  color: var(--ids__text-caption);
-  background-color: transparent;
-  border: var(--ids__border-width-s) solid var(--ids__border);
-  border-radius: var(--ids__radius-pill);
-  cursor: pointer;
-  transition:
-    color var(--ids__duration-fast) var(--ids__easing-base),
-    border-color var(--ids__duration-fast) var(--ids__easing-base);
+  font: inherit;
 }
 
-.ids__theme-toggle:hover {
-  color: var(--ids__text);
-  background-color: transparent;
-  border-color: var(--ids__text-caption);
+.ids__theme-toggle svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Флаг чуть меньше кружка — вокруг остаётся кольцо рамки и фона; сам рисунок
+   уже круглый (clipPath внутри svg), поэтому svg спокойно ужимается. */
+
+.ids__lang > a svg {
+  display: block;
+  width: 70%;
+  height: 70%;
+}
+
+/* Иконка текущей темы: солнце на светлой, луна на тёмной. Обе в разметке,
+   видна одна — по html.dark, который инлайн-скрипт ставит до отрисовки. */
+
+.ids__icon-moon {
+  display: none;
+}
+
+html.dark .ids__icon-sun {
+  display: none;
+}
+
+html.dark .ids__icon-moon {
+  display: block;
+}
+
+/* Подпись внизу. Фиксированный низ по центру — зеркало хрома сверху; отступ
+   8rem у main уже выдерживает её без наложения на контент. Только текст,
+   поэтому pointer-events: none: подпись не перехватывает клики. Намеренно
+   самая бледная точка страницы: 0.6em и приглушённый caption-цвет. */
+
+.ids__dedication {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 0 0 calc(var(--ids__density) * 0.6rem);
+  font-size: 0.6em;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--ids__text-caption) 20%, transparent);
+  text-align: center;
+  pointer-events: none;
 }
 
 /* Блик. Перезапускается при каждом клике, потому что script.js снимает и

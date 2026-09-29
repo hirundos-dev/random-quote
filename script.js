@@ -1,3 +1,4 @@
+import { seregaEmotional } from './js/serega-emotional.js';
 import { seregaGentle } from './js/serega-gentle.js';
 
 const HOLD_MS = 1500;
@@ -8,6 +9,8 @@ const THEME_KEY = 'ids-theme';
 const THEMES = ['dark', 'light'];
 const PREFERS_DARK = '(prefers-color-scheme: dark)';
 const LOAD_ERROR_FALLBACK = 'Не удалось загрузить список фраз';
+const GREETING_FLAG = 'ids-greeting-shown';
+const GREETING_FALLBACK = 'Если когда-нибудь тебе станет одиноко, то помни, я всегда с тобой';
 
 export function parsePhrases(text) {
   const phrases = [];
@@ -37,6 +40,32 @@ export function pickPhrase(phrases) {
   if (phrases.length === 0) throw new Error('no phrases to show');
 
   return phrases[Math.floor(Math.random() * phrases.length)];
+}
+
+/* Приветствие. Один раз на устройство: первый визит встречает фразу из
+   data-greeting, дальше — пустое состояние до первого клика. Флаг живёт в
+   localStorage; без него (приватный режим) приветствие вернётся в следующий
+   визит — приемлемо, как и тема без записи. isGreetingPending чистая и
+   экспортируется ради тестов. */
+
+export function isGreetingPending(flag) {
+  return flag == null;
+}
+
+function readGreetingFlag() {
+  try {
+    return localStorage.getItem(GREETING_FLAG);
+  } catch {
+    return null;
+  }
+}
+
+function writeGreetingFlag() {
+  try {
+    localStorage.setItem(GREETING_FLAG, '1');
+  } catch {
+    /* Приватный режим: приветствие будет показываться каждый визит. */
+  }
 }
 
 /* Тема. Правило одно: явный выбор пользователя побеждает системную настройку,
@@ -90,14 +119,20 @@ function initTheme() {
   if (!toggle) return;
 
   const system = matchMedia(PREFERS_DARK);
-  const pressed = () =>
-    toggle.setAttribute('aria-pressed', String(document.documentElement.classList.contains('dark')));
+
+  /* Иконку (солнце/луну) показывает сам CSS по html.dark, этот атрибут —
+     только для читалок: true означает, что активна тёмная тема. */
+  const pressed = () => {
+    const dark = document.documentElement.classList.contains('dark');
+    toggle.setAttribute('aria-pressed', String(dark));
+  };
 
   pressed();
 
+  /* Клик по кружку — явный выбор противоположной темы: он записывается и
+     побеждает системную настройку, как раньше побеждал клик по сегменту. */
   toggle.addEventListener('click', () => {
     const next = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-
     applyTheme(next);
     writeStoredTheme(next);
     pressed();
@@ -123,12 +158,28 @@ async function init() {
   const quote = document.getElementById('quote');
   let phrases;
 
+  /* Приветствие показывается сразу, не дожидаясь сети: первый визит
+     встречает фразу ещё до загрузки корпуса. Фраза — из data-greeting на
+     <html>, как корпус и ошибка; кнопка при этом уже стоит. */
+  let greetingAnimation = null;
+
+  if (quote && isGreetingPending(readGreetingFlag())) {
+    greetingAnimation = seregaEmotional(quote, {
+      text: root.dataset.greeting || GREETING_FALLBACK,
+    });
+    writeGreetingFlag();
+  }
+
   try {
     phrases = await loadPhrases(root.dataset.phrases || PHRASES_URL);
 
     if (phrases.length === 0) throw new Error('no phrases to show');
   } catch {
     button.remove();
+    /* Приветствие уходит вместе с кнопкой: destroy снимает класс и aria-label,
+       иначе ошибка читалась бы как цитата с анимационным контейнером. */
+    greetingAnimation?.destroy();
+    greetingAnimation = null;
     quote.textContent = root.dataset.loadError || LOAD_ERROR_FALLBACK;
 
     return;
@@ -148,6 +199,11 @@ async function init() {
     button.style.display = 'none';
 
     const phrase = pickPhrase(phrases);
+
+    /* Приветствие уходит с первым кликом: destroy возвращает пустую цитату,
+       и seregaGentle заполняет её случайной фразой. */
+    greetingAnimation?.destroy();
+    greetingAnimation = null;
 
     animation?.destroy();
     animation = seregaGentle(quote, { phrases: [phrase] });

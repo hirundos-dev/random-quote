@@ -34,11 +34,11 @@ test('the switcher is a plain link, so it works with JavaScript off', () => {
   assert.match(html.en, /<a[^>]*href="\.\.\/"/);
 });
 
-test('the current language is a span marked with aria-current, not a link', () => {
-  assert.match(html.ru, /<span[^>]*aria-current="page"/);
-  assert.match(html.en, /<span[^>]*aria-current="page"/);
-  assert.doesNotMatch(html.ru, /<a[^>]*href="\/?"[^>]*aria-current/);
-  assert.doesNotMatch(html.en, /<a[^>]*href="\.\.\/"[^>]*aria-current/);
+test('the flag circle shows the current locale and links to the other', () => {
+  assert.doesNotMatch(html.ru, /aria-current/);
+  assert.doesNotMatch(html.en, /aria-current/);
+  assert.match(html.ru, /<a[^>]*href="en\/"[^>]*><svg/);
+  assert.match(html.en, /<a[^>]*href="\.\.\/"[^>]*><svg/);
 });
 
 test('each page points hreflang at both locales and itself as canonical', () => {
@@ -126,4 +126,57 @@ test('both pages ship the same theme-color literal and default', () => {
     assert.match(page, /<meta name="theme-color" content="#ffffff"/, `${locale} theme-color default`);
     assert.match(page, /'#121214'/, `${locale} dark arm of the head script`);
   }
+});
+
+test('each page greets a fresh device with its own phrase', () => {
+  const greetings = {};
+
+  for (const [locale, page] of Object.entries(html)) {
+    greetings[locale] = page.match(/data-greeting="([^"]*)"/)?.[1];
+    assert.ok(greetings[locale], `${locale} page has no data-greeting`);
+  }
+
+  assert.notEqual(greetings.ru, greetings.en);
+  assert.doesNotMatch(greetings.en, /[Ѐ-ӿ]/, 'the English greeting is in Russian');
+  assert.doesNotMatch(greetings.ru, /[A-Za-z]/, 'the Russian greeting is in English');
+});
+
+test('the theme control is a single toggle button with a pressed state', () => {
+  for (const [locale, page] of Object.entries(html)) {
+    assert.match(page, /<button[^>]*id="theme-toggle"/, `${locale} lost the theme toggle`);
+    assert.match(page, /<button[^>]*id="theme-toggle"[^>]*aria-pressed=/, `${locale} toggle carries no pressed state`);
+    assert.doesNotMatch(page, /data-theme=/, `${locale} still has segmented buttons`);
+  }
+});
+
+test('the theme toggle and the flag circle are icon controls with labels', () => {
+  for (const [locale, page] of Object.entries(html)) {
+    assert.match(page, /id="theme-toggle"[^>]*aria-label=/, `${locale} theme toggle lost its label`);
+    assert.match(page, /<clipPath[^>]*><circle/, `${locale} flag is not drawn as a circle`);
+    assert.match(page, /<svg/, `${locale} page has no inline svg icons`);
+  }
+
+  assert.doesNotMatch(html.ru, />Светлая</);
+  assert.doesNotMatch(html.ru, />Тёмная</);
+  assert.doesNotMatch(html.en, />Светлая</);
+  assert.doesNotMatch(html.en, />Тёмная</);
+  assert.doesNotMatch(html.en, />RU</);
+  assert.doesNotMatch(html.en, />EN</);
+
+  assert.match(html.ru, /aria-label="Переключить тему"/);
+  assert.match(html.en, /aria-label="Toggle theme"/);
+  assert.match(html.ru, /aria-label="English"/);
+  assert.match(html.en, /aria-label="Russian"/);
+});
+
+test('the main action offers advice in the page language', () => {
+  assert.match(html.ru, />Получить совет</);
+  assert.match(html.en, />Get advice</);
+  assert.doesNotMatch(html.en, /Получить совет/);
+});
+
+test('each page dedicates the project in its own language', () => {
+  assert.match(html.ru, />Посвящается Марку и Леониду</);
+  assert.match(html.en, />Dedicated to Mark and Leonid</);
+  assert.doesNotMatch(html.en, /Посвящается/);
 });
