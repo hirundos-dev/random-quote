@@ -78,10 +78,51 @@
   top: calc(var(--ids__density) * 0.75rem);
   right: calc(var(--ids__density) * 0.75rem);
   z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 
   /* Отступ IDS для header/footer здесь лишний: позиционирование считает
      внешний край, а не содержимое. */
   padding: 0;
+}
+
+/* Переключатель языка. Локаль живёт в пути, поэтому переключение — обычная
+   ссылка и работает без JavaScript. Текущая локаль — span с aria-current, а не
+   ссылка: переходить на ту же страницу некуда. Высота и кегль совпадают с
+   тумблером, чтобы в углу читался один кластер, а не два разных элемента.
+   Признак текущей локали берём из самого aria-current, а не из лишнего
+   класса: состояние объявлено в разметке один раз. */
+
+.ids__lang {
+  display: flex;
+  align-items: stretch;
+  font-size: 0.8em;
+  line-height: 1.15;
+  border: var(--ids__border-width-s) solid var(--ids__border);
+  border-radius: var(--ids__radius-pill);
+  overflow: hidden;
+}
+
+.ids__lang > * {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0.9em;
+  color: var(--ids__text-caption);
+  text-decoration: none;
+  transition:
+    color var(--ids__duration-fast) var(--ids__easing-base),
+    background-color var(--ids__duration-fast) var(--ids__easing-base);
+}
+
+.ids__lang > [aria-current] {
+  color: var(--ids__text);
+  background-color: var(--ids__surface);
+}
+
+.ids__lang > a:hover {
+  color: var(--ids__text);
+  background-color: color-mix(in srgb, var(--ids__text) 8%, transparent);
 }
 
 .ids__theme-toggle {

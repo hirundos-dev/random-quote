@@ -41,14 +41,18 @@ Every code change must follow `docs/safe-fix.md` — root cause analysis, minima
 
 ```
 random-quote/
-├── index.html              # Single page: quote + button + theme chrome
-├── script.js               # ES module: fetch phrases.md, animate phrase on click, theme
-├── phrases.md              # Phrase list, one `- ` per line (source of data)
+├── index.html              # Russian page (/), quote + button + theme chrome + switcher
+├── en/
+│   └── index.html          # English page (/en/), same structure, `../` asset paths
+├── script.js               # ES module: fetch corpus, animate phrase on click, theme
+├── phrases.md              # Russian phrase list, one `- ` per line (source of data)
+├── phrases.en.md           # English phrase list (Phase 4 — absent until translated)
 ├── favicon.svg             # Inline SVG mark; the old page 404'd on every load
 ├── tests/                  # Tests (node --test)
 │   ├── load-phrases.test.js
 │   ├── theme.test.js
-│   └── page.test.js
+│   ├── page.test.js
+│   └── language.test.js
 ├── js/                     # Scripts
 │   └── serega-gentle.js    # Vendored animation module (serega-gentle skill asset)
 ├── css/                    # Stylesheets, layered like IDS
@@ -78,9 +82,10 @@ random-quote/
 - Deployed via GitHub Pages from `main` branch.
 
 ### Data Flow
-- `script.js` fetches `phrases.md` on load and parses it: a list marker (`-` or `—`, with or without a following space) starts a phrase, headings and blank lines are skipped, each phrase is kept once. A non-ok response or an empty list replaces the button with a visible message rather than failing silently.
+- Each page carries its own config on `<html>`: `data-phrases` (corpus path) and `data-load-error` (the message shown when the corpus cannot be loaded). `script.js` reads both in `init()`; the constants in `script.js` are only fallbacks for a page that forgot the attributes, guarded by `tests/language.test.js`.
+- `script.js` fetches the corpus on load and parses it: a list marker (`-` or `—`, with or without a following space) starts a phrase, headings and blank lines are skipped, each phrase is kept once. A non-ok response or an empty list replaces the button with a visible message rather than failing silently.
 - Clicking the button hides it, picks a random phrase, reveals it with the serega-gentle per-character animation, shows it for ~1.5s, then restores the button.
-- The site works without JS: heading renders, button requires JS.
+- The site works without JS, including the language switch: locales live in the URL path, so switching is a plain link. The current locale is a `<span aria-current="page">`, the other is an `<a href>` with `hreflang`.
 
 ### CSS Architecture
 The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids) (MIT) — its layer order, `ids__` namespace and token set are kept, while the values, the button and the shine are this project's own. Vendored skill assets are the only other copied files.
@@ -98,19 +103,22 @@ The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids)
 - **Vendored CSS is overridden, never edited** — `project.css` neutralises the per-glyph `will-change` that `serega-gentle.css` puts on ~500 glyphs of a long phrase.
 
 ### Pages
-- Single page (`index.html`). Russian language (`lang="ru"`).
-- Content (phrases) lives in `phrases.md`, not in HTML.
+- Two pages: `/` (`index.html`, Russian, `lang="ru"`) and `/en/` (`en/index.html`, English, `lang="en"`). All shared assets (`css/*`, `js/*`, `favicon.svg`, `fonts/`) are referenced from `en/` via `../`.
+- The pages are coordinated, not templated: any change to the anti-flash theme script, the `<head>` metadata, or the chrome markup has to be made in both files and in the same words, except the parts that differ by language (title, copy, `canonical`, `og:locale`, `hreflang`, corpus path, error message).
+- Content (phrases) lives in the corpus files (`phrases.md`, `phrases.en.md`), not in HTML.
+- `canonical` and `hreflang` point at the deployed URLs (`https://hirundos-dev.github.io/random-quote/` and `/en/`), each page naming both locales plus `x-default`.
 
 ## Coding Conventions
 
 ### HTML
 - Semantic HTML5 (`<main>`, `<h1>`, `<blockquote>`, `<button>`).
 - The page has one `<h1>`, visually hidden via `.ids__visually-hidden`: the quote only exists after a click, so there is no visible heading to carry it. The quote is a `<blockquote>`, not a heading — and the reset does not touch its margin, so `project.css` zeroes it. The browser default `margin: 1em 40px` would otherwise break the centring and the `2em` gap.
-- Russian language (`lang="ru"`).
+- `<html>` carries `<lang>`, plus `data-phrases` (corpus path) and `data-load-error` (load-failure message) — `script.js` reads them, they are the page's only config.
+- The language switcher sits in the chrome as a segmented pill: current locale = `<span aria-current="page">`, target = `<a href="en/">` / `<a href="../">` with `hreflang`. No JS involved in switching.
 - Keep the button id `show-quote` and the quote id `quote` — `script.js` depends on them.
 - Keep the theme id `theme-toggle` — `script.js` depends on it.
 - The only inline `<script>` is the anti-flash theme script in `<head>`. It must stay there: it is the one thing that has to run before the first paint. Everything else is in `script.js`.
-- UI strings are duplicated per page. No runtime i18n — it would mean a build step.
+- UI strings are duplicated per page, and page comments follow the page's language (an English page has no Cyrillic left in it — `tests/language.test.js` enforces that). No runtime i18n — it would mean a build step.
 
 ### CSS
 - Follow the `ids__` naming convention strictly.

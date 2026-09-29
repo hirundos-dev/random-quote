@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-phrases="phrases.md" data-load-error="Не удалось загрузить список фраз">
 <head>
   <meta charset="utf-8" />
   <title>Случайная фраза</title>
   <meta name="description" content="Случайная фраза на каждое нажатие: нажмите кнопку — и получите одну из сотен фраз." />
   <link rel="canonical" href="https://hirundos-dev.github.io/random-quote/" />
+  <link rel="alternate" hreflang="ru" href="https://hirundos-dev.github.io/random-quote/" />
+  <link rel="alternate" hreflang="en" href="https://hirundos-dev.github.io/random-quote/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://hirundos-dev.github.io/random-quote/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Литерал, а не токен: содержимое meta не умеет читать CSS-переменные.
        Дублирует --ids__background; после загрузки script.js перезаписывает
        его вычисленным значением, так что палитра остаётся источником правды. -->
@@ -52,6 +55,10 @@
 </head>
 <body class="ids">
   <header class="ids__chrome">
+    <nav class="ids__lang" aria-label="Язык">
+      <span lang="ru" aria-current="page">RU</span>
+      <a href="en/" hreflang="en" lang="en">EN</a>
+    </nav>
     <button id="theme-toggle" class="ids__theme-toggle" type="button" aria-pressed="false">Тёмная тема</button>
   </header>
   <main>

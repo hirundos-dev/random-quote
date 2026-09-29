@@ -7,6 +7,7 @@ const LIST_MARKER = /^\s*[-—]\s?/;
 const THEME_KEY = 'ids-theme';
 const THEMES = ['dark', 'light'];
 const PREFERS_DARK = '(prefers-color-scheme: dark)';
+const LOAD_ERROR_FALLBACK = 'Не удалось загрузить список фраз';
 
 export function parsePhrases(text) {
   const phrases = [];
@@ -113,17 +114,22 @@ function initTheme() {
 async function init() {
   initTheme();
 
+  /* Страниц две, и у каждой свой корпус и своя надпись об ошибке. Сборки нет,
+     поэтому конфигурация живёт в разметке: data-phrases и data-load-error на
+     <html>. Русская строка ниже — только на случай страницы, которая забыла
+     атрибут; обе страницы его несут, и это проверяет tests/language.test.js. */
+  const root = document.documentElement;
   const button = document.getElementById('show-quote');
   const quote = document.getElementById('quote');
   let phrases;
 
   try {
-    phrases = await loadPhrases();
+    phrases = await loadPhrases(root.dataset.phrases || PHRASES_URL);
 
     if (phrases.length === 0) throw new Error('no phrases to show');
   } catch {
     button.remove();
-    quote.textContent = 'Не удалось загрузить список фраз';
+    quote.textContent = root.dataset.loadError || LOAD_ERROR_FALLBACK;
 
     return;
   }
