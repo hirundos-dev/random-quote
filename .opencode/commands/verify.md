@@ -1,6 +1,6 @@
 ---
 description: Run verification loop to validate implementation
-agent: build
+agent: code-reviewer
 ---
 
 # Verify Command
@@ -9,29 +9,29 @@ Run verification loop to validate the implementation: $ARGUMENTS
 
 ## Your Task
 
-Execute comprehensive verification for this static site (no build step, no package.json):
+Execute comprehensive verification for this static site (no build step, no package.json, no dependencies):
 
-1. **JS Syntax**: `node --check script.js`
-2. **Asset References**: every `src`/`href` in `index.html` and CSS `url()` points to an existing file
-3. **Phrases**: `phrases.md` parses (lines starting with `- `), fetch works
-4. **CSS**: no duplicate selectors, all `--ids__*` tokens resolve in `css/tokens/colors.css`
+1. **Test suite**: `node --test` from the repo root — Node's built-in runner, 59 tests. This is the canonical gate: all must pass.
+2. **Language sync**: `tests/language.test.js` pins both pages' chrome, config attributes, hreflang/canonical and the identical anti-flash head script. `tests/en-corpus.test.js` pins the RU/EN corpus mirror (325/325), no Cyrillic in EN, no raw repeats in either corpus.
+3. **Assets**: every `src`/`href`/`url()` a page or stylesheet references resolves to a file on disk — `tests/language.test.js` already checks the page references; spot-check new ones.
+4. **No console.log**: `grep -n "console\." script.js` must return nothing.
 
 ## Verification Checklist
 
 ### Code Quality
-- [ ] No JS syntax errors
-- [ ] No `console.log` statements
-- [ ] No dead CSS selectors in `css/project.css` (elements exist in `index.html`)
-- [ ] No hardcoded colors — use `var(--ids__...)` from `css/tokens/colors.css`
+- [ ] `node --test` green (59/59)
+- [ ] No `console.log` in `script.js` or vendored js
+- [ ] No hardcoded colors — only `var(--ids__...)` from `css/tokens/colors.css`
+- [ ] No hardcoded font sizes — fluid typography from `css/settings.css`
 
 ### Assets
-- [ ] All linked CSS files exist (`colors`, `normalize`, `settings`, `layout`, `las`)
+- [ ] All linked CSS files exist (`tokens/palette.css`, `tokens/colors.css`, `tokens/scales.css`, `reset.css`, `settings.css`, `page-composition/layout.css`, `serega-gentle.css`, `serega-emotional.css`, `project.css`)
 - [ ] Font `url()` paths resolve in `fonts/`
-- [ ] `phrases.md` contains at least one phrase
+- [ ] `phrases.md` and `phrases.en.md` both parse to 325 unique phrases
 
-### Accessibility
-- [ ] Page has `lang="ru"` and `<title>`
-- [ ] Button is focusable and has visible text
+### Accessibility & i18n
+- [ ] Both pages declare `lang`, one `h1` (visually hidden), a labelled `#theme-toggle` with `aria-pressed`, and a labelled language link
+- [ ] The English page carries no Cyrillic; the corpus-greeting cascade is in sync (both `data-greeting` attributes, `GREETING_FALLBACK` in script.js, and the greeting regexes in `tests/en-corpus.test.js`)
 
 ## Verification Report
 
@@ -42,10 +42,10 @@ Execute comprehensive verification for this static site (no build step, no packa
 ### Details
 | Check | Status | Notes |
 |-------|--------|-------|
-| JS syntax | PASS:/FAIL: | [details] |
+| Test suite (`node --test`) | PASS:/FAIL: | [details] |
 | Assets | PASS:/FAIL: | [details] |
-| Phrases | PASS:/FAIL: | [details] |
-| CSS | PASS:/FAIL: | [details] |
+| Corpus parity | PASS:/FAIL: | [details] |
+| Console.log | PASS:/FAIL: | [details] |
 
 ### Action Items
 [If FAIL, list what needs to be fixed]

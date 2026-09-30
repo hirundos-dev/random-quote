@@ -10,58 +10,26 @@ Update documentation to reflect recent changes: $ARGUMENTS
 
 ## Your Task
 
-1. **Identify changed code** - `git diff --name-only`
-2. **Find related docs** - README, API docs, guides
-3. **Update documentation** - Keep in sync with code
-4. **Verify accuracy** - Docs match implementation
+This static site has no API, no package.json, no version numbers. The documentation that exists:
 
-## Documentation Types
+- `AGENTS.md` — operating principles and the project structure tree; the tree must list every real file
+- `README.md` — demo link, license notice (code MIT, content CC BY-NC-SA)
+- `LICENSE`, `CC` — license texts, referenced from README
+- `docs/safe-fix.md` — mandatory fix protocol
+- `docs/superpowers/plans/*` — implementation plans (one per feature)
 
-### README.md
-- Installation instructions
-- Quick start guide
-- Feature overview
-- Configuration options
+## Sync Checklist
 
-### API Documentation
-- Endpoint descriptions
-- Request/response formats
-- Authentication details
-- Error codes
+Run `git diff --name-only` first, then check each touched area against its doc:
 
-### Code Comments
-- JSDoc for public APIs
-- Complex logic explanations
-- TODO/FIXME cleanup
+- [ ] **Pages pair**: both `index.html` and `en/index.html` carry the same chrome, head metadata and anti-flash script (except language-specific copy). Changes to one page must mirror in the other.
+- [ ] **Corpus mirror**: `phrases.md` and `phrases.en.md` must hold the same number of unique phrases (currently 325/325). A corpus change in one locale requires the other — and possibly the greeting cascade.
+- [ ] **Greeting cascade**: the greeting phrase lives in 5 places that must stay in sync — `data-greeting` on both `<html>` elements, `GREETING_FALLBACK` in `script.js`, and the greeting regexes in `tests/en-corpus.test.js`.
+- [ ] **AGENTS.md structure tree**: reflects actual files after rename/remove/add.
+- [ ] **README / LICENSE / CC**: still accurate about licensing and the demo URL.
 
-### Guides
-- How-to tutorials
-- Architecture decisions (ADRs)
-- Troubleshooting guides
+## Quality Bar
 
-## Update Checklist
-
-- [ ] README reflects current features
-- [ ] API docs match endpoints
-- [ ] JSDoc updated for changed functions
-- [ ] Examples are working
-- [ ] Links are valid
-- [ ] Version numbers updated
-
-## Documentation Quality
-
-### Good Documentation
-- Accurate and up-to-date
-- Clear and concise
-- Has working examples
-- Covers edge cases
-
-### Avoid
-- Outdated information
-- Missing parameters
-- Broken examples
-- Ambiguous language
-
----
-
-**IMPORTANT**: Documentation should be updated alongside code changes, not as an afterthought.
+- Accurate and up-to-date; no generic filler (no API/JSDoc/versioning sections — they do not apply here).
+- Documentation updated alongside code changes, not as an afterthought.
+- After the change: `node --test` still green (docs never break it, but the command is the project's verification gate).
