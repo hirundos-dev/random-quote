@@ -19,7 +19,7 @@
   --ids__surface: var(--ids__color-gray-100);
   --ids__background: var(--ids__color-white);
 
-  --ids__border: color-mix(in srgb, var(--ids__text) 20%, transparent);
+  --ids__border: color-mix(in srgb, var(--ids__text) 10%, transparent);
 
   --ids__error: var(--ids__color-red-500);
   --ids__success: var(--ids__color-green-600);
