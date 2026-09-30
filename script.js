@@ -10,7 +10,7 @@ const THEMES = ['dark', 'light'];
 const PREFERS_DARK = '(prefers-color-scheme: dark)';
 const LOAD_ERROR_FALLBACK = 'Не удалось загрузить список фраз';
 const GREETING_FLAG = 'ids-greeting-shown';
-const GREETING_FALLBACK = 'Если когда-нибудь тебе станет одиноко, то помни, я всегда с тобой';
+const GREETING_FALLBACK = 'Если вдруг тебе когда-нибудь станет одиноко, помни, я всегда с тобой';
 
 export function parsePhrases(text) {
   const phrases = [];

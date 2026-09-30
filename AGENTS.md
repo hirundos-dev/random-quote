@@ -46,7 +46,7 @@ random-quote/
 │   └── index.html          # English page (/en/), same structure, `../` asset paths
 ├── script.js               # ES module: fetch corpus, animate phrase on click, greet, theme
 ├── phrases.md              # Russian phrase list, one `- ` per line (source of data)
-├── phrases.en.md           # English phrase list, full 315-phrase mirror of phrases.md
+├── phrases.en.md           # English phrase list, full 325-phrase mirror of phrases.md
 ├── favicon.svg             # Inline SVG mark; the old page 404'd on every load
 ├── tests/                  # Tests (node --test)
 │   ├── load-phrases.test.js
@@ -143,7 +143,7 @@ The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids)
 
 ### Content
 - Phrases live in `phrases.md`, one per line starting with `- `.
-- Both corpora open with the greeting phrase («Если когда-нибудь тебе станет одиноко, то помни, я всегда с тобой» / «If you ever feel lonely, remember I'm always with you») — it doubles as the first-visit welcome and can also come up at random.
+- Both corpora open with the greeting phrase («Если вдруг тебе когда-нибудь станет одиноко, помни, я всегда с тобой» / «If you ever suddenly feel lonely, remember I'm always with you») — it doubles as the first-visit welcome and can also come up at random.
 - Use non-breaking spaces (`\u00A0`) around short words per Russian typographic rules, matching existing entries.
 
 ## Browser Targets

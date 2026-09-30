@@ -105,7 +105,7 @@
   padding: 0;
   border: var(--ids__border-width-s) solid var(--ids__border);
   border-radius: 50%;
-  color: var(--ids__text-caption) ;
+  color: var(--ids__text-caption);
   background-color: transparent;
   text-decoration: none;
   cursor: pointer;

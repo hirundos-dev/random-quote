@@ -54,6 +54,6 @@ test('both corpora open with the dedication-greeting', () => {
     readFileSync(new URL(RU, import.meta.url), 'utf8'),
   )[0];
 
-  assert.match(phrases[0], /^If you ever feel lonely/);
-  assert.match(ruFirst, /^Если когда-нибудь тебе станет одиноко/);
+  assert.match(phrases[0], /^If you ever suddenly feel lonely/);
+  assert.match(ruFirst, /^Если вдруг тебе когда-нибудь станет одиноко/);
 });

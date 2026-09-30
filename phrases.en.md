@@ -1,6 +1,6 @@
 # Phrases
 
-- If you ever feel lonely, remember I'm always with you
+- If you ever suddenly feel lonely, remember I'm always with you
 - Never give up
 - If you want to sell a penguin an iceberg, don't push the ice. Show it how to slide on it
 - Be easy on yourself — it helps you slowly climb out of rescue mode, hear and actually listen to yourself, and keep your time for your own things
@@ -109,7 +109,6 @@
 - Accept the world as it is. Drop value judgments, take every phenomenon as neutral by default. Even better — as clearly positive
 - Forget what happened in the past. It has nothing to do with your future. Take from it only experience, knowledge, good relationships and positive impressions
 - Don't be afraid. There are no insurmountable obstacles, and all doubt lives only in your head. You don't have to be a warrior — it's enough to see the goal, walk around the obstacles and know you'll reach it without a single chance of failure
-- You should let go of a thing boldly even when, holding it in your hands, you feel not the energy of joy but only the thought of "what if it comes in handy"
 - Never expect anything from anyone, ever. Then you'll be pleasantly surprised on the regular and won't suffer. All suffering comes from inflated, baseless expectations
 - Learn to fence yourself off from outside influences. Even the nicest person can cause stress. A "do not disturb" sign is appropriate on more than just a hotel door
 - You should know that you can choose between such people. We don't have to spend time with everyone who crosses our path. Our free will is stronger than we think. We can influence our own destiny very significantly
@@ -315,3 +314,14 @@
 - It's worth building the habit of asking yourself "what don't I know?" and "what don't they know?"
 - We can do (really well) only what we believe in
 - Grant me the mind and peace of soul to accept what I cannot change, the courage to change what I can, and the wisdom to tell one from the other
+- You'll never be ready. You don't prepare for the gym by getting strong on the couch at home. You show up weak and, working on yourself, you become strong
+- Better a small rule you keep than a great feat you give up in a week
+- Life is too short to try to please everyone
+- Choose the best of the people who fit you — in your personal life and at work. Once you start applying this principle, life becomes five times easier. If you're scissors, you'll be good with paper. Why would you be friends with a hammer that needs nails?
+- The twists of fate scare you only in the moment; take a step back later, and all the misfortunes turn out quite small
+- There's one more thing that can't be brought back and is in our power to keep — a sound mind. Protect it, for it helps you make sensible decisions
+- Don't think you'll slip through.
+- If you want to change your lifestyle, start with one change that matters to you, is doable but takes effort.
+- Don't try to change everything at once; better to change things bit by bit, regularly. Remember — water wears away stone
+- The true calling of a person is to live, not to exist
+- A bone thrown to a dog is not mercy; mercy is a bone shared with the dog when you're no less hungry than it is
