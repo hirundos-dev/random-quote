@@ -101,3 +101,26 @@ test('the legitimate Latin in line 465 survives the homoglyph check', () => {
     'Latin goal letters are content, not homoglyphs',
   );
 });
+
+test('no Russian phrase is repeated in the raw corpus', () => {
+  const seen = new Set();
+
+  /* Читаем сырые строки, а не parsePhrases: парсер сам дедуплицирует,
+     поэтому повтор в файле сквозь него не виден. Правило выделения
+     фразы — то же, что в script.js: маркер `- `/`— `, пустые строки
+     и заголовки пропускаются. */
+  const marker = /^\s*[-—]\s?/;
+
+  for (const rawLine of corpus.split('\n')) {
+    const line = rawLine.trim();
+
+    if (line === '' || line.startsWith('#')) continue;
+
+    const phrase = line.replace(marker, '').trim();
+
+    if (phrase === '') continue;
+
+    assert.ok(!seen.has(phrase), `repeated phrase: ${phrase}`);
+    seen.add(phrase);
+  }
+});

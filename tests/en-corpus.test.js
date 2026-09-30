@@ -41,11 +41,22 @@ test('no English phrase is empty', () => {
 });
 
 test('no English phrase is repeated', () => {
+  /* Идём по сырым строкам, а не по parsePhrases: парсер сам
+     дедуплицирует, поэтому повтор в файле сквозь него не виден. */
   const seen = new Set();
+  const marker = /^\s*[-—]\s?/;
 
-  for (const [i, p] of phrases.entries()) {
-    assert.ok(!seen.has(p), `phrase ${i + 1} is a duplicate`);
-    seen.add(p);
+  for (const rawLine of enText.split('\n')) {
+    const line = rawLine.trim();
+
+    if (line === '' || line.startsWith('#')) continue;
+
+    const phrase = line.replace(marker, '').trim();
+
+    if (phrase === '') continue;
+
+    assert.ok(!seen.has(phrase), `repeated phrase: ${phrase}`);
+    seen.add(phrase);
   }
 });
 
