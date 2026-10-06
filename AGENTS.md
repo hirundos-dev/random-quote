@@ -87,7 +87,7 @@ random-quote/
 
 ### Data Flow
 - Each page carries its own config on `<html>`: `data-phrases` (corpus path), `data-load-error` (the message shown when the corpus cannot be loaded) and `data-greeting` (the phrase that welcomes a first-time visitor). `script.js` reads all three in `init()`; the constants in `script.js` are only fallbacks for a page that forgot the attributes, guarded by `tests/language.test.js`.
-- `script.js` fetches the corpus on load and parses it: a list marker (`-` or `—`, with or without a following space) starts a phrase, headings and blank lines are skipped, each phrase is kept once. A non-ok response or an empty list replaces the button with a visible message rather than failing silently.
+- `script.js` fetches the corpus on load and parses it: a list marker (`-` or `—`, with or without a following space) starts a phrase, headings and blank lines are skipped, each phrase is kept once. The parser is deliberately forgiving: a line without a marker is read as a phrase too. That is why the marker convention is held by the corpus itself — a guard test in `tests/load-phrases.test.js` and `tests/en-corpus.test.js` fails on any content line that lost its `- `, since such a line would otherwise be published as a quote. A non-ok response or an empty list replaces the button with a visible message rather than failing silently.
 - A first-time device sees the `data-greeting` phrase, revealed with the serega-emotional spring; a `localStorage` flag hides it on every later visit, which is why it is injected by JS rather than written into the markup.
 - Clicking the button («Получить совет» / «Get advice») hides it, picks a random phrase, reveals it with the serega-gentle per-character animation, shows it for ~1.5s, then restores the button.
 - The site works without JS, including the language switch: locales live in the URL path, so switching is a plain link.
@@ -142,7 +142,7 @@ The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids)
 - `script.js` is the only hand-written JS file; keep it small and dependency-free. Vendored skill assets (js/serega-gentle.js, js/serega-emotional.js) are not edited.
 
 ### Content
-- Phrases live in `phrases.md`, one per line starting with `- `.
+- Phrases live in `phrases.md`, one per line starting with `- `. The marker is not decoration: the parser reads a marker-less line as a phrase, so a guard test fails the suite when one appears.
 - Both corpora open with the greeting phrase («Если вдруг тебе когда-нибудь станет одиноко, помни, я всегда с тобой» / «If you ever suddenly feel lonely, remember I'm always with you») — it doubles as the first-visit welcome and can also come up at random.
 - Use non-breaking spaces (`\u00A0`) around short words per Russian typographic rules, matching existing entries.
 

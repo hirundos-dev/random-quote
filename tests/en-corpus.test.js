@@ -60,6 +60,22 @@ test('no English phrase is repeated', () => {
   }
 });
 
+test('every content line of the English corpus carries a list marker', () => {
+  /* Парсер терпим к строке без маркера и прочитает её как фразу — на живом
+     сайте это случайная цитата из заметки. Поэтому соглашение держит сам
+     файл: каждая содержательная строка обязана начинаться с `- `/`— `. */
+  const withoutMarker = [];
+
+  for (const [index, rawLine] of enText.split('\n').entries()) {
+    const line = rawLine.trim();
+
+    if (line === '' || line.startsWith('#')) continue;
+    if (!/^[-—]\s?/.test(line)) withoutMarker.push(index + 1);
+  }
+
+  assert.deepEqual(withoutMarker, [], 'English corpus lines without a list marker');
+});
+
 test('both corpora open with the dedication-greeting', () => {
   const ruFirst = parsePhrases(
     readFileSync(new URL(RU, import.meta.url), 'utf8'),

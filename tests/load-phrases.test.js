@@ -65,7 +65,7 @@ test('phrases that the old parser dropped are read back', () => {
 
   assert.ok(
     parsed.includes('Творить добро нужно ради собственной радости.'),
-    'line 491 lost its marker and must come back as a phrase',
+    'the phrase of line 491 must survive a corpus edit',
   );
   assert.ok(
     parsed.some((p) => p.startsWith('Секрет успеха почти любого начинания')),
@@ -123,4 +123,20 @@ test('no Russian phrase is repeated in the raw corpus', () => {
     assert.ok(!seen.has(phrase), `repeated phrase: ${phrase}`);
     seen.add(phrase);
   }
+});
+
+test('every content line of the Russian corpus carries a list marker', () => {
+  /* Парсер терпим к строке без маркера и прочитает её как фразу — на живом
+     сайте это случайная цитата из заметки. Поэтому соглашение держит сам
+     файл: каждая содержательная строка обязана начинаться с `- `/`— `. */
+  const withoutMarker = [];
+
+  for (const [index, rawLine] of corpus.split('\n').entries()) {
+    const line = rawLine.trim();
+
+    if (line === '' || line.startsWith('#')) continue;
+    if (!/^[-—]\s?/.test(line)) withoutMarker.push(index + 1);
+  }
+
+  assert.deepEqual(withoutMarker, [], 'Russian corpus lines without a list marker');
 });
