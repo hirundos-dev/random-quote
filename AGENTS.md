@@ -46,8 +46,12 @@ random-quote/
 │   └── index.html          # English page (/en/), same structure, `../` asset paths
 ├── script.js               # ES module: fetch corpus, animate phrase on click, greet, theme
 ├── phrases.md              # Russian phrase list, one `- ` per line (source of data)
-├── phrases.en.md           # English phrase list, full 325-phrase mirror of phrases.md
+├── phrases.en.md           # English phrase list, phrase-for-phrase mirror of phrases.md
 ├── favicon.svg             # Inline SVG mark; the old page 404'd on every load
+├── README.md               # Demo link and the license notice
+├── LICENSE                 # MIT — the code
+├── CC                      # CC BY-NC-SA 4.0 — the content
+├── opencode.json           # opencode agents; AGENTS.md and docs/safe-fix.md are its instructions
 ├── tests/                  # Tests (node --test)
 │   ├── load-phrases.test.js
 │   ├── theme.test.js
@@ -74,7 +78,7 @@ random-quote/
 ├── fonts/                  # Onest variable, four unicode-range subsets + OFL
 ├── docs/                   # Documentation
 │   ├── safe-fix.md         # Mandatory fix protocol
-│   └── ...                 # Specs and history
+│   └── superpowers/plans/  # Implementation plans (one per feature)
 └── .opencode/              # opencode configuration (commands, skills, agents)
 ```
 
@@ -119,7 +123,7 @@ The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids)
 
 ### HTML
 - Semantic HTML5 (`<main>`, `<h1>`, `<blockquote>`, `<button>`).
-- The page has one `<h1>`, visually hidden via `.ids__visually-hidden`: the random quote appears on a click and the greeting arrives from JS, so no live quote exists in the markup to carry a heading. The quote is a `<blockquote>`, not a heading — and the reset does not touch its margin, so `project.css` zeroes it. The browser default `margin: 1em 40px` would otherwise break the centring and the `2em` gap.
+- The page has one `<h1>`, visually hidden via `.ids__visually-hidden`: the random quote appears on a click and the greeting arrives from JS, so no live quote exists in the markup to carry a heading. The quote is a `<blockquote>`, not a heading — and the reset does not touch its margin, so `project.css` zeroes it. The browser default `margin: 1em 40px` would otherwise break the centring and the `3em` gap.
 - `<html>` carries `<lang>`, plus `data-phrases` (corpus path), `data-load-error` (load-failure message) and `data-greeting` (first-visit welcome) — `script.js` reads them, they are the page's only config.
 - The language switcher sits in the chrome as a circular flag: the current locale is drawn on the flag, the link goes to the other locale (`<a href="en/">` / `<a href="../">` with `hreflang`). No JS involved in switching. The theme switcher next to it is the same circle shape, one `<button>` with `aria-pressed`; both icons (sun and moon) live in the markup and CSS shows one off `html.dark`.
 - Keep the button id `show-quote` and the quote id `quote` — `script.js` depends on them.

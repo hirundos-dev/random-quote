@@ -11,15 +11,16 @@ Run verification loop to validate the implementation: $ARGUMENTS
 
 Execute comprehensive verification for this static site (no build step, no package.json, no dependencies):
 
-1. **Test suite**: `node --test` from the repo root — Node's built-in runner, 59 tests. This is the canonical gate: all must pass.
-2. **Language sync**: `tests/language.test.js` pins both pages' chrome, config attributes, hreflang/canonical and the identical anti-flash head script. `tests/en-corpus.test.js` pins the RU/EN corpus mirror (325/325), no Cyrillic in EN, no raw repeats in either corpus.
-3. **Assets**: every `src`/`href`/`url()` a page or stylesheet references resolves to a file on disk — `tests/language.test.js` already checks the page references; spot-check new ones.
-4. **No console.log**: `grep -n "console\." script.js` must return nothing.
+1. **Test suite**: `node --test` from the repo root — Node's built-in runner. This is the canonical gate: all must pass. The suite asserts its own size; never write the test count into a doc.
+2. **Language sync**: `tests/language.test.js` pins both pages' chrome, config attributes, hreflang/canonical and the identical anti-flash head script. `tests/en-corpus.test.js` pins the RU/EN corpus mirror (equal unique counts), no Cyrillic in EN, no raw repeats and no missing list marker in either corpus.
+3. **Typography seam**: the root font-size is two fluid scales that meet at the 768px breakpoint — `tests/typography.test.js` samples every width and fails on a jump.
+4. **Assets**: every `src`/`href`/`url()` a page or stylesheet references resolves to a file on disk — `tests/language.test.js` already checks the page references; spot-check new ones.
+5. **No console.log**: `grep -n "console\." script.js` must return nothing.
 
 ## Verification Checklist
 
 ### Code Quality
-- [ ] `node --test` green (59/59)
+- [ ] `node --test` green
 - [ ] No `console.log` in `script.js` or vendored js
 - [ ] No hardcoded colors — only `var(--ids__...)` from `css/tokens/colors.css`
 - [ ] No hardcoded font sizes — fluid typography from `css/settings.css`
@@ -27,7 +28,7 @@ Execute comprehensive verification for this static site (no build step, no packa
 ### Assets
 - [ ] All linked CSS files exist (`tokens/palette.css`, `tokens/colors.css`, `tokens/scales.css`, `reset.css`, `settings.css`, `page-composition/layout.css`, `serega-gentle.css`, `serega-emotional.css`, `project.css`)
 - [ ] Font `url()` paths resolve in `fonts/`
-- [ ] `phrases.md` and `phrases.en.md` both parse to 325 unique phrases
+- [ ] `phrases.md` and `phrases.en.md` parse to the same number of unique phrases (the parity test owns that number)
 
 ### Accessibility & i18n
 - [ ] Both pages declare `lang`, one `h1` (visually hidden), a labelled `#theme-toggle` with `aria-pressed`, and a labelled language link

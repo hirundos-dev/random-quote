@@ -23,7 +23,7 @@ This static site has no API, no package.json, no version numbers. The documentat
 Run `git diff --name-only` first, then check each touched area against its doc:
 
 - [ ] **Pages pair**: both `index.html` and `en/index.html` carry the same chrome, head metadata and anti-flash script (except language-specific copy). Changes to one page must mirror in the other.
-- [ ] **Corpus mirror**: `phrases.md` and `phrases.en.md` must hold the same number of unique phrases (currently 325/325). A corpus change in one locale requires the other — and possibly the greeting cascade.
+- [ ] **Corpus mirror**: `phrases.md` and `phrases.en.md` must hold the same number of unique phrases. Never write that number into a doc — `tests/en-corpus.test.js` owns it. A corpus change in one locale requires the other — and possibly the greeting cascade.
 - [ ] **Greeting cascade**: the greeting phrase lives in 5 places that must stay in sync — `data-greeting` on both `<html>` elements, `GREETING_FALLBACK` in `script.js`, and the greeting regexes in `tests/en-corpus.test.js`.
 - [ ] **AGENTS.md structure tree**: reflects actual files after rename/remove/add.
 - [ ] **README / LICENSE / CC**: still accurate about licensing and the demo URL.
