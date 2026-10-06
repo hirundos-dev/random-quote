@@ -54,6 +54,7 @@ random-quote/
 │   ├── page.test.js
 │   ├── language.test.js
 │   ├── en-corpus.test.js
+│   ├── typography.test.js
 │   └── greeting.test.js
 ├── js/                     # Scripts
 │   ├── serega-gentle.js    # Vendored animation module (serega-gentle skill asset)
@@ -100,7 +101,7 @@ The stylesheet stack is a rename of [IDS](https://github.com/intuition-tech/ids)
 - **Opacity:** `color-mix(in srgb, var(--ids__token) N%, transparent)`. IDS tokens are whole colors, not `-RGB` triplets — do not reintroduce `rgba(var(--x-RGB), a)`.
 - **Local additions to IDS files carry a comment saying so**, so a future re-sync stays reviewable.
 - **Native CSS Nesting** throughout (Chrome 120+, Firefox 117+).
-- **Fluid Typography:** `calc()` with viewport units, breakpoints 320/768px.
+- **Fluid Typography:** `calc()` with viewport units, breakpoints 320/768px. The root size is two linear scales that must meet at the 768px seam — the mobile maximum equals the desktop minimum, or the size jumps ~3× on one pixel of width (guarded by `tests/typography.test.js`).
 - **Responsive:** `@media (width < 768px)` range syntax (Chrome 104+, Firefox 113+).
 - **Two themes.** `tokens/colors.css` holds the light `:root` block and the `.dark` block. The class goes on `<html>`, not `<body>` — `color-scheme` has to sit on the root element for the canvas, scrollbars and form controls to follow.
 - **No flash on load.** An inline script in `<head>` applies `.dark` before `<body>` is parsed. It duplicates the one rule from `resolveTheme` in `script.js`; `script.js` owns everything after first paint. Both places must be changed together.
