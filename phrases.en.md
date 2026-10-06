@@ -325,3 +325,4 @@
 - Don't try to change everything at once; better to change things bit by bit, regularly. Remember — water wears away stone
 - The true calling of a person is to live, not to exist
 - A bone thrown to a dog is not mercy; mercy is a bone shared with the dog when you're no less hungry than it is
+- You have to be strong — otherwise why be at all
