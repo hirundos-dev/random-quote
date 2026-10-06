@@ -43,4 +43,7 @@ textarea {
 img {
   display: block;
   width: 100%;
+  /* Локальное отличие от IDS: без height: auto width: 100% искажает
+     картинку с заданными пропорциями. */
+  height: auto;
 }
